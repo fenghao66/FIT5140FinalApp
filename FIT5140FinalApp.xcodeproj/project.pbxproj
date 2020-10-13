@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49927BA52535E00900C10181 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49927BA42535E00900C10181 /* GoogleService-Info.plist */; };
 		AC91EDC42534673F007C8189 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91EDC32534673F007C8189 /* AppDelegate.swift */; };
 		AC91EDC62534673F007C8189 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91EDC52534673F007C8189 /* SceneDelegate.swift */; };
 		AC91EDC82534673F007C8189 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91EDC72534673F007C8189 /* ViewController.swift */; };
 		AC91EDCB2534673F007C8189 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC91EDC92534673F007C8189 /* Main.storyboard */; };
 		AC91EDCD25346746007C8189 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC91EDCC25346746007C8189 /* Assets.xcassets */; };
 		AC91EDD025346746007C8189 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC91EDCE25346746007C8189 /* LaunchScreen.storyboard */; };
+		DDBECA7E7B17BBBDE3F1B06E /* Pods_FIT5140FinalApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8714BE2BCF8274871E9AB72 /* Pods_FIT5140FinalApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49927BA42535E00900C10181 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5C20A351683D91A9636A3BAE /* Pods-FIT5140FinalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FIT5140FinalApp.debug.xcconfig"; path = "Target Support Files/Pods-FIT5140FinalApp/Pods-FIT5140FinalApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AC91EDC02534673F007C8189 /* FIT5140FinalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FIT5140FinalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC91EDC32534673F007C8189 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC91EDC52534673F007C8189 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +28,8 @@
 		AC91EDCC25346746007C8189 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC91EDCF25346746007C8189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC91EDD125346746007C8189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8714BE2BCF8274871E9AB72 /* Pods_FIT5140FinalApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FIT5140FinalApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E310A1EEA441AECF4E955531 /* Pods-FIT5140FinalApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FIT5140FinalApp.release.xcconfig"; path = "Target Support Files/Pods-FIT5140FinalApp/Pods-FIT5140FinalApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDBECA7E7B17BBBDE3F1B06E /* Pods_FIT5140FinalApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A43FB9EA22EACB709A08E1BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8714BE2BCF8274871E9AB72 /* Pods_FIT5140FinalApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AC91EDB72534673F007C8189 = {
 			isa = PBXGroup;
 			children = (
 				AC91EDC22534673F007C8189 /* FIT5140FinalApp */,
 				AC91EDC12534673F007C8189 /* Products */,
+				C917AFE6FC7867CD203C9786 /* Pods */,
+				A43FB9EA22EACB709A08E1BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,9 +79,20 @@
 				AC91EDC92534673F007C8189 /* Main.storyboard */,
 				AC91EDCC25346746007C8189 /* Assets.xcassets */,
 				AC91EDCE25346746007C8189 /* LaunchScreen.storyboard */,
+				49927BA42535E00900C10181 /* GoogleService-Info.plist */,
 				AC91EDD125346746007C8189 /* Info.plist */,
 			);
 			path = FIT5140FinalApp;
+			sourceTree = "<group>";
+		};
+		C917AFE6FC7867CD203C9786 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C20A351683D91A9636A3BAE /* Pods-FIT5140FinalApp.debug.xcconfig */,
+				E310A1EEA441AECF4E955531 /* Pods-FIT5140FinalApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC91EDD425346746007C8189 /* Build configuration list for PBXNativeTarget "FIT5140FinalApp" */;
 			buildPhases = (
+				BB7E6B1A35D5B5016DA4A01E /* [CP] Check Pods Manifest.lock */,
 				AC91EDBC2534673F007C8189 /* Sources */,
 				AC91EDBD2534673F007C8189 /* Frameworks */,
 				AC91EDBE2534673F007C8189 /* Resources */,
+				AA614384F962ACBA5194CE6B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,12 +155,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC91EDD025346746007C8189 /* LaunchScreen.storyboard in Resources */,
+				49927BA52535E00900C10181 /* GoogleService-Info.plist in Resources */,
 				AC91EDCD25346746007C8189 /* Assets.xcassets in Resources */,
 				AC91EDCB2534673F007C8189 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AA614384F962ACBA5194CE6B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FIT5140FinalApp/Pods-FIT5140FinalApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FIT5140FinalApp/Pods-FIT5140FinalApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FIT5140FinalApp/Pods-FIT5140FinalApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB7E6B1A35D5B5016DA4A01E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FIT5140FinalApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AC91EDBC2534673F007C8189 /* Sources */ = {
@@ -216,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +344,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -283,10 +356,12 @@
 		};
 		AC91EDD525346746007C8189 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C20A351683D91A9636A3BAE /* Pods-FIT5140FinalApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8CR5M9C5V;
 				INFOPLIST_FILE = FIT5140FinalApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -301,10 +376,12 @@
 		};
 		AC91EDD625346746007C8189 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E310A1EEA441AECF4E955531 /* Pods-FIT5140FinalApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8CR5M9C5V;
 				INFOPLIST_FILE = FIT5140FinalApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
