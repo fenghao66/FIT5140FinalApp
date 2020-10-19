@@ -3,11 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		49927BA52535E00900C10181 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49927BA42535E00900C10181 /* GoogleService-Info.plist */; };
+		AC4D2904253DA068003AD179 /* SearchMovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2903253DA068003AD179 /* SearchMovieTableViewController.swift */; };
+		AC4D2908253DAA56003AD179 /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2907253DAA56003AD179 /* MovieDetail.swift */; };
+		AC4D290D253DB4E4003AD179 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D290C253DB4E4003AD179 /* MovieService.swift */; };
+		AC4D2910253DB53C003AD179 /* MovieStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D290F253DB53C003AD179 /* MovieStore.swift */; };
+		AC4D2913253DB6E5003AD179 /* MovieCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2912253DB6E5003AD179 /* MovieCustomCell.swift */; };
+		AC4D2916253DB938003AD179 /* SearchMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2915253DB938003AD179 /* SearchMovieCell.swift */; };
 		AC91EDC42534673F007C8189 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91EDC32534673F007C8189 /* AppDelegate.swift */; };
 		AC91EDC62534673F007C8189 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91EDC52534673F007C8189 /* SceneDelegate.swift */; };
 		AC91EDC82534673F007C8189 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91EDC72534673F007C8189 /* ViewController.swift */; };
@@ -20,6 +26,12 @@
 /* Begin PBXFileReference section */
 		49927BA42535E00900C10181 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C20A351683D91A9636A3BAE /* Pods-FIT5140FinalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FIT5140FinalApp.debug.xcconfig"; path = "Target Support Files/Pods-FIT5140FinalApp/Pods-FIT5140FinalApp.debug.xcconfig"; sourceTree = "<group>"; };
+		AC4D2903253DA068003AD179 /* SearchMovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieTableViewController.swift; sourceTree = "<group>"; };
+		AC4D2907253DAA56003AD179 /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
+		AC4D290C253DB4E4003AD179 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
+		AC4D290F253DB53C003AD179 /* MovieStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieStore.swift; sourceTree = "<group>"; };
+		AC4D2912253DB6E5003AD179 /* MovieCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCustomCell.swift; sourceTree = "<group>"; };
+		AC4D2915253DB938003AD179 /* SearchMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieCell.swift; sourceTree = "<group>"; };
 		AC91EDC02534673F007C8189 /* FIT5140FinalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FIT5140FinalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC91EDC32534673F007C8189 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC91EDC52534673F007C8189 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +93,12 @@
 				AC91EDCE25346746007C8189 /* LaunchScreen.storyboard */,
 				49927BA42535E00900C10181 /* GoogleService-Info.plist */,
 				AC91EDD125346746007C8189 /* Info.plist */,
+				AC4D2903253DA068003AD179 /* SearchMovieTableViewController.swift */,
+				AC4D2907253DAA56003AD179 /* MovieDetail.swift */,
+				AC4D290C253DB4E4003AD179 /* MovieService.swift */,
+				AC4D290F253DB53C003AD179 /* MovieStore.swift */,
+				AC4D2912253DB6E5003AD179 /* MovieCustomCell.swift */,
+				AC4D2915253DB938003AD179 /* SearchMovieCell.swift */,
 			);
 			path = FIT5140FinalApp;
 			sourceTree = "<group>";
@@ -91,7 +109,6 @@
 				5C20A351683D91A9636A3BAE /* Pods-FIT5140FinalApp.debug.xcconfig */,
 				E310A1EEA441AECF4E955531 /* Pods-FIT5140FinalApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -210,9 +227,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC4D290D253DB4E4003AD179 /* MovieService.swift in Sources */,
+				AC4D2904253DA068003AD179 /* SearchMovieTableViewController.swift in Sources */,
 				AC91EDC82534673F007C8189 /* ViewController.swift in Sources */,
+				AC4D2913253DB6E5003AD179 /* MovieCustomCell.swift in Sources */,
+				AC4D2908253DAA56003AD179 /* MovieDetail.swift in Sources */,
+				AC4D2916253DB938003AD179 /* SearchMovieCell.swift in Sources */,
 				AC91EDC42534673F007C8189 /* AppDelegate.swift in Sources */,
 				AC91EDC62534673F007C8189 /* SceneDelegate.swift in Sources */,
+				AC4D2910253DB53C003AD179 /* MovieStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
