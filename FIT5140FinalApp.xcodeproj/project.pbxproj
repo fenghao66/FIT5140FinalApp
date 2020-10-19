@@ -24,6 +24,8 @@
 		AC91EDCB2534673F007C8189 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC91EDC92534673F007C8189 /* Main.storyboard */; };
 		AC91EDCD25346746007C8189 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC91EDCC25346746007C8189 /* Assets.xcassets */; };
 		AC91EDD025346746007C8189 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC91EDCE25346746007C8189 /* LaunchScreen.storyboard */; };
+		ACFC85FF253DEBE3009B56E0 /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFC85FE253DEBE3009B56E0 /* MovieData.swift */; };
+		ACFC8602253DEC19009B56E0 /* VolumeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFC8601253DEC19009B56E0 /* VolumeData.swift */; };
 		DDBECA7E7B17BBBDE3F1B06E /* Pods_FIT5140FinalApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8714BE2BCF8274871E9AB72 /* Pods_FIT5140FinalApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +50,8 @@
 		AC91EDCC25346746007C8189 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC91EDCF25346746007C8189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC91EDD125346746007C8189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACFC85FE253DEBE3009B56E0 /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
+		ACFC8601253DEC19009B56E0 /* VolumeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeData.swift; sourceTree = "<group>"; };
 		C8714BE2BCF8274871E9AB72 /* Pods_FIT5140FinalApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FIT5140FinalApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E310A1EEA441AECF4E955531 /* Pods-FIT5140FinalApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FIT5140FinalApp.release.xcconfig"; path = "Target Support Files/Pods-FIT5140FinalApp/Pods-FIT5140FinalApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,13 +126,23 @@
 				49927BA42535E00900C10181 /* GoogleService-Info.plist */,
 				AC91EDD125346746007C8189 /* Info.plist */,
 				AC4D2903253DA068003AD179 /* SearchMovieTableViewController.swift */,
-				AC4D2907253DAA56003AD179 /* MovieDetail.swift */,
 				AC4D290C253DB4E4003AD179 /* MovieService.swift */,
 				AC4D290F253DB53C003AD179 /* MovieStore.swift */,
 				AC4D2912253DB6E5003AD179 /* MovieCustomCell.swift */,
 				AC4D2915253DB938003AD179 /* SearchMovieCell.swift */,
+				ACFC8604253DEC47009B56E0 /* API */,
 			);
 			path = FIT5140FinalApp;
+			sourceTree = "<group>";
+		};
+		ACFC8604253DEC47009B56E0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				AC4D2907253DAA56003AD179 /* MovieDetail.swift */,
+				ACFC85FE253DEBE3009B56E0 /* MovieData.swift */,
+				ACFC8601253DEC19009B56E0 /* VolumeData.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		C917AFE6FC7867CD203C9786 /* Pods */ = {
@@ -265,6 +279,8 @@
 				AC4D2916253DB938003AD179 /* SearchMovieCell.swift in Sources */,
 				492EBB24253DC42300BA9A00 /* DisplayViewController.swift in Sources */,
 				AC91EDC42534673F007C8189 /* AppDelegate.swift in Sources */,
+				ACFC8602253DEC19009B56E0 /* VolumeData.swift in Sources */,
+				ACFC85FF253DEBE3009B56E0 /* MovieData.swift in Sources */,
 				AC91EDC62534673F007C8189 /* SceneDelegate.swift in Sources */,
 				492EBB20253DC40700BA9A00 /* SignInViewController.swift in Sources */,
 				AC4D2910253DB53C003AD179 /* MovieStore.swift in Sources */,
