@@ -12,6 +12,7 @@
 		492EBB24253DC42300BA9A00 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492EBB23253DC42300BA9A00 /* DisplayViewController.swift */; };
 		492EBB29253DCFBA00BA9A00 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492EBB28253DCFBA00BA9A00 /* Utilities.swift */; };
 		49927BA52535E00900C10181 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49927BA42535E00900C10181 /* GoogleService-Info.plist */; };
+		49E5A860253E8AB6007088D6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A85F253E8AB6007088D6 /* TabBarViewController.swift */; };
 		AC4D2904253DA068003AD179 /* SearchMovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2903253DA068003AD179 /* SearchMovieTableViewController.swift */; };
 		AC4D2908253DAA56003AD179 /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2907253DAA56003AD179 /* MovieDetail.swift */; };
 		AC4D290D253DB4E4003AD179 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D290C253DB4E4003AD179 /* MovieService.swift */; };
@@ -35,6 +36,7 @@
 		492EBB23253DC42300BA9A00 /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		492EBB28253DCFBA00BA9A00 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		49927BA42535E00900C10181 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49E5A85F253E8AB6007088D6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5C20A351683D91A9636A3BAE /* Pods-FIT5140FinalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FIT5140FinalApp.debug.xcconfig"; path = "Target Support Files/Pods-FIT5140FinalApp/Pods-FIT5140FinalApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AC4D2903253DA068003AD179 /* SearchMovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieTableViewController.swift; sourceTree = "<group>"; };
 		AC4D2907253DAA56003AD179 /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				492EBB1F253DC40700BA9A00 /* SignInViewController.swift */,
 				492EBB21253DC41600BA9A00 /* SignUpViewController.swift */,
 				492EBB23253DC42300BA9A00 /* DisplayViewController.swift */,
+				49E5A85F253E8AB6007088D6 /* TabBarViewController.swift */,
 			);
 			path = SignInAndSignUp;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49E5A860253E8AB6007088D6 /* TabBarViewController.swift in Sources */,
 				492EBB22253DC41600BA9A00 /* SignUpViewController.swift in Sources */,
 				AC4D290D253DB4E4003AD179 /* MovieService.swift in Sources */,
 				AC4D2904253DA068003AD179 /* SearchMovieTableViewController.swift in Sources */,
