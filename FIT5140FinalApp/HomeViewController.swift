@@ -38,14 +38,6 @@ class HomeViewController: UIViewController {
     */
     // MARK: - Web request
     
-    private enum RootKeys: String, CodingKey {
-        case id
-        case title
-        case posterPath = "poster_path"
-        case overview
-        case releaseDate = "release_date"
-    }
-    
     func fetchMovie(listState: String?) {
         
         var searchURLComponentrs = URLComponents(string: "\(REQUEST_STRING)/movie/\(listState ?? "popular")")
