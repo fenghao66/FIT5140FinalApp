@@ -29,6 +29,8 @@
 		AC91EDCB2534673F007C8189 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC91EDC92534673F007C8189 /* Main.storyboard */; };
 		AC91EDCD25346746007C8189 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC91EDCC25346746007C8189 /* Assets.xcassets */; };
 		AC91EDD025346746007C8189 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC91EDCE25346746007C8189 /* LaunchScreen.storyboard */; };
+		ACDE637D253F2DA900ED103F /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE637C253F2DA900ED103F /* HomeCollectionViewCell.swift */; };
+		ACDE6380253F30E200ED103F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE637F253F30E200ED103F /* HomeViewController.swift */; };
 		ACFC85FF253DEBE3009B56E0 /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFC85FE253DEBE3009B56E0 /* MovieData.swift */; };
 		ACFC8602253DEC19009B56E0 /* VolumeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFC8601253DEC19009B56E0 /* VolumeData.swift */; };
 		DDBECA7E7B17BBBDE3F1B06E /* Pods_FIT5140FinalApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8714BE2BCF8274871E9AB72 /* Pods_FIT5140FinalApp.framework */; };
@@ -60,6 +62,8 @@
 		AC91EDCC25346746007C8189 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC91EDCF25346746007C8189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC91EDD125346746007C8189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACDE637C253F2DA900ED103F /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		ACDE637F253F30E200ED103F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ACFC85FE253DEBE3009B56E0 /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		ACFC8601253DEC19009B56E0 /* VolumeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeData.swift; sourceTree = "<group>"; };
 		C8714BE2BCF8274871E9AB72 /* Pods_FIT5140FinalApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FIT5140FinalApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +152,7 @@
 				49E5A861253E9DE0007088D6 /* material */,
 				492EBB25253DCE0D00BA9A00 /* utility */,
 				492EBB1E253DC3E200BA9A00 /* SignInAndSignUp */,
+				ACFC8604253DEC47009B56E0 /* API */,
 				AC91EDC32534673F007C8189 /* AppDelegate.swift */,
 				AC91EDC52534673F007C8189 /* SceneDelegate.swift */,
 				AC91EDC72534673F007C8189 /* ViewController.swift */,
@@ -161,7 +166,8 @@
 				AC4D290F253DB53C003AD179 /* MovieStore.swift */,
 				AC4D2912253DB6E5003AD179 /* MovieCustomCell.swift */,
 				AC4D2915253DB938003AD179 /* SearchMovieCell.swift */,
-				ACFC8604253DEC47009B56E0 /* API */,
+				ACDE637C253F2DA900ED103F /* HomeCollectionViewCell.swift */,
+				ACDE637F253F30E200ED103F /* HomeViewController.swift */,
 			);
 			path = FIT5140FinalApp;
 			sourceTree = "<group>";
@@ -305,6 +311,7 @@
 				49E5A86D253F01B7007088D6 /* MeViewController.swift in Sources */,
 				49E5A860253E8AB6007088D6 /* TabBarViewController.swift in Sources */,
 				492EBB22253DC41600BA9A00 /* SignUpViewController.swift in Sources */,
+				ACDE637D253F2DA900ED103F /* HomeCollectionViewCell.swift in Sources */,
 				AC4D290D253DB4E4003AD179 /* MovieService.swift in Sources */,
 				AC4D2904253DA068003AD179 /* SearchMovieTableViewController.swift in Sources */,
 				AC91EDC82534673F007C8189 /* ViewController.swift in Sources */,
@@ -316,6 +323,7 @@
 				492EBB24253DC42300BA9A00 /* DisplayViewController.swift in Sources */,
 				AC91EDC42534673F007C8189 /* AppDelegate.swift in Sources */,
 				ACFC8602253DEC19009B56E0 /* VolumeData.swift in Sources */,
+				ACDE6380253F30E200ED103F /* HomeViewController.swift in Sources */,
 				ACFC85FF253DEBE3009B56E0 /* MovieData.swift in Sources */,
 				AC91EDC62534673F007C8189 /* SceneDelegate.swift in Sources */,
 				492EBB20253DC40700BA9A00 /* SignInViewController.swift in Sources */,
