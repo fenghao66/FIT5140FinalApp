@@ -39,14 +39,15 @@ class Utilities {
         
         // Hollow rounded corner style
         button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.black.cgColor
-        button.layer.cornerRadius = 25.0
-        button.tintColor = UIColor.black
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.cornerRadius = 20.0
+        button.tintColor = UIColor.white
     }
     
+    //refer to https://medium.com/swlh/password-validation-in-swift-5-3de161569910
     static func isPasswordValid(_ password : String) -> Bool {
         
-        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
+        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{7,}")
         return passwordTest.evaluate(with: password)
     }
     

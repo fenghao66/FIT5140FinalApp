@@ -81,4 +81,13 @@ class SignInViewController: UIViewController {
         }
         return nil
     }
+    
+    
+    @IBAction func backAction(_ sender: Any) {
+        let controller = self.storyboard?.instantiateViewController(identifier: "displaViewController") as! DisplayViewController
+        self.view.window?.rootViewController = controller
+        self.view.window?.makeKeyAndVisible()
+        
+    }
+    
 }

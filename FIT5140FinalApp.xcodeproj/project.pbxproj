@@ -13,6 +13,9 @@
 		492EBB29253DCFBA00BA9A00 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492EBB28253DCFBA00BA9A00 /* Utilities.swift */; };
 		49927BA52535E00900C10181 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49927BA42535E00900C10181 /* GoogleService-Info.plist */; };
 		49E5A860253E8AB6007088D6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A85F253E8AB6007088D6 /* TabBarViewController.swift */; };
+		49E5A864253EB02E007088D6 /* wolf.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 49E5A862253EB02D007088D6 /* wolf.MOV */; };
+		49E5A865253EB02E007088D6 /* cr7.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 49E5A863253EB02E007088D6 /* cr7.MOV */; };
+		49E5A867253ED2B0007088D6 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A866253ED2B0007088D6 /* ForgetPasswordViewController.swift */; };
 		AC4D2904253DA068003AD179 /* SearchMovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2903253DA068003AD179 /* SearchMovieTableViewController.swift */; };
 		AC4D2908253DAA56003AD179 /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2907253DAA56003AD179 /* MovieDetail.swift */; };
 		AC4D290D253DB4E4003AD179 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D290C253DB4E4003AD179 /* MovieService.swift */; };
@@ -37,6 +40,9 @@
 		492EBB28253DCFBA00BA9A00 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		49927BA42535E00900C10181 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		49E5A85F253E8AB6007088D6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		49E5A862253EB02D007088D6 /* wolf.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = wolf.MOV; sourceTree = "<group>"; };
+		49E5A863253EB02E007088D6 /* cr7.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = cr7.MOV; sourceTree = "<group>"; };
+		49E5A866253ED2B0007088D6 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		5C20A351683D91A9636A3BAE /* Pods-FIT5140FinalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FIT5140FinalApp.debug.xcconfig"; path = "Target Support Files/Pods-FIT5140FinalApp/Pods-FIT5140FinalApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AC4D2903253DA068003AD179 /* SearchMovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieTableViewController.swift; sourceTree = "<group>"; };
 		AC4D2907253DAA56003AD179 /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
@@ -77,6 +83,7 @@
 				492EBB21253DC41600BA9A00 /* SignUpViewController.swift */,
 				492EBB23253DC42300BA9A00 /* DisplayViewController.swift */,
 				49E5A85F253E8AB6007088D6 /* TabBarViewController.swift */,
+				49E5A866253ED2B0007088D6 /* ForgetPasswordViewController.swift */,
 			);
 			path = SignInAndSignUp;
 			sourceTree = "<group>";
@@ -87,6 +94,15 @@
 				492EBB28253DCFBA00BA9A00 /* Utilities.swift */,
 			);
 			path = utility;
+			sourceTree = "<group>";
+		};
+		49E5A861253E9DE0007088D6 /* material */ = {
+			isa = PBXGroup;
+			children = (
+				49E5A863253EB02E007088D6 /* cr7.MOV */,
+				49E5A862253EB02D007088D6 /* wolf.MOV */,
+			);
+			path = material;
 			sourceTree = "<group>";
 		};
 		A43FB9EA22EACB709A08E1BE /* Frameworks */ = {
@@ -118,6 +134,7 @@
 		AC91EDC22534673F007C8189 /* FIT5140FinalApp */ = {
 			isa = PBXGroup;
 			children = (
+				49E5A861253E9DE0007088D6 /* material */,
 				492EBB25253DCE0D00BA9A00 /* utility */,
 				492EBB1E253DC3E200BA9A00 /* SignInAndSignUp */,
 				AC91EDC32534673F007C8189 /* AppDelegate.swift */,
@@ -219,6 +236,8 @@
 				AC91EDD025346746007C8189 /* LaunchScreen.storyboard in Resources */,
 				49927BA52535E00900C10181 /* GoogleService-Info.plist in Resources */,
 				AC91EDCD25346746007C8189 /* Assets.xcassets in Resources */,
+				49E5A865253EB02E007088D6 /* cr7.MOV in Resources */,
+				49E5A864253EB02E007088D6 /* wolf.MOV in Resources */,
 				AC91EDCB2534673F007C8189 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +300,7 @@
 				AC4D2913253DB6E5003AD179 /* MovieCustomCell.swift in Sources */,
 				AC4D2908253DAA56003AD179 /* MovieDetail.swift in Sources */,
 				AC4D2916253DB938003AD179 /* SearchMovieCell.swift in Sources */,
+				49E5A867253ED2B0007088D6 /* ForgetPasswordViewController.swift in Sources */,
 				492EBB24253DC42300BA9A00 /* DisplayViewController.swift in Sources */,
 				AC91EDC42534673F007C8189 /* AppDelegate.swift in Sources */,
 				ACFC8602253DEC19009B56E0 /* VolumeData.swift in Sources */,

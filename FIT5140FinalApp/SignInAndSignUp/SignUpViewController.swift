@@ -123,7 +123,7 @@ class SignUpViewController: UIViewController {
         
         if Utilities.isPasswordValid(passwordInput) == false {
             
-            return "Please enter the password containts a special character,a number and at least 8 characters"
+            return "Please enter the password containts a special character,a number and at least 7 characters"
         }
         
         
@@ -137,5 +137,16 @@ class SignUpViewController: UIViewController {
         
         return nil
     }
+    
+    
+    
+    @IBAction func backAction(_ sender: Any) {
+        
+        let controller = self.storyboard?.instantiateViewController(identifier: "displaViewController") as! DisplayViewController
+        self.view.window?.rootViewController = controller
+        self.view.window?.makeKeyAndVisible()
+        
+    }
+    
  
 }
