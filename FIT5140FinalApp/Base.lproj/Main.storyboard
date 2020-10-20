@@ -65,12 +65,21 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Movie Lover" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugh-bm-XDZ">
+                                <rect key="frame" x="10" y="10" width="355" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Ugh-bm-XDZ" firstAttribute="top" secondItem="sVU-vw-Zd6" secondAttribute="top" constant="10" id="1E0-br-246"/>
                             <constraint firstItem="sVU-vw-Zd6" firstAttribute="trailing" secondItem="ez6-qW-1k1" secondAttribute="trailing" constant="40" id="EsT-Y2-aHa"/>
                             <constraint firstItem="ez6-qW-1k1" firstAttribute="leading" secondItem="sVU-vw-Zd6" secondAttribute="leading" constant="40" id="F9j-V5-LV0"/>
+                            <constraint firstItem="Ugh-bm-XDZ" firstAttribute="leading" secondItem="sVU-vw-Zd6" secondAttribute="leading" constant="10" id="Ut9-7p-cyt"/>
                             <constraint firstItem="sVU-vw-Zd6" firstAttribute="bottom" secondItem="ez6-qW-1k1" secondAttribute="bottom" constant="8" id="ZTn-ea-CLi"/>
+                            <constraint firstItem="sVU-vw-Zd6" firstAttribute="trailing" secondItem="Ugh-bm-XDZ" secondAttribute="trailing" constant="10" id="wqt-5O-7Cd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sVU-vw-Zd6"/>
                     </view>
@@ -610,7 +619,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9yG-LQ-g4O">
                                         <rect key="frame" x="0.0" y="60" width="295" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="rSN-zu-Qsd"/>
+                                            <constraint firstAttribute="height" constant="40" id="ZBR-6l-iyA"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>

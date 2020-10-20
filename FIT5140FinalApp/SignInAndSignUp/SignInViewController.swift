@@ -23,7 +23,11 @@ class SignInViewController: UIViewController {
     func setSignElements(){
         Utilities.styleTextField(passwordTextField)
         Utilities.styleTextField(emailTextField)
-        Utilities.styleFilledButton(signInButton)
+        Utilities.styleFilledButton(signInButton)        
+        let emailImage = UIImage(named:"email")
+        Utilities.addLeftImageTo(txtField:emailTextField, andImage: emailImage!)
+        let passwordImage = UIImage(named:"password")
+        Utilities.addLeftImageTo(txtField: passwordTextField, andImage: passwordImage!)
         
     }
     

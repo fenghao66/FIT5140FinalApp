@@ -34,6 +34,14 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(passwordSecondTextField)
         Utilities.styleFilledButton(signUpButton)
         
+        let emailImage = UIImage(named:"email")
+        Utilities.addLeftImageTo(txtField:emailTextField, andImage: emailImage!)
+        let passwordImage = UIImage(named:"password")
+        Utilities.addLeftImageTo(txtField: passwordTextField, andImage: passwordImage!)
+        Utilities.addLeftImageTo(txtField: passwordSecondTextField, andImage: passwordImage!)
+        Utilities.addLeftImageTo(txtField: firstNameTextField, andImage: UIImage(named:"nameIcon")!)
+        Utilities.addLeftImageTo(txtField: lastNameTextField, andImage: UIImage(named:"nameIcon")!)
+        
     }
     
     /*
