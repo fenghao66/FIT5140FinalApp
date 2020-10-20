@@ -75,20 +75,19 @@ class SignUpViewController: UIViewController {
                 }else{
                     //create user success
                     //refer: https://firebase.google.com/docs/firestore/quickstart
-          let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: ["firstName":self.firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),"lastName":self.lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines), "uid":success!.user.uid]) { (error) in
+                    let db = Firestore.firestore()
+                    db.collection("users").document(success!.user.uid).setData(["firstName":self.firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),"lastName":self.lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines), "uid":success!.user.uid]) { (error) in
                         if error == nil {
                             self.errorLabel.alpha = 1
                             self.errorLabel.text = "Add New User to Firebase Failed"
                             
                         }
-                        
                     }
-             // jump to tob bar view controller 
-               let controller = self.storyboard?.instantiateViewController(identifier: "tabBarView") as! TabBarViewController
-                                  self.view.window?.rootViewController = controller
-                                  self.view.window?.makeKeyAndVisible()
-        
+                    // jump to tob bar view controller
+                    let controller = self.storyboard?.instantiateViewController(identifier: "tabBarView") as! TabBarViewController
+                    self.view.window?.rootViewController = controller
+                    self.view.window?.makeKeyAndVisible()
+                    
                 }
                 
                 
@@ -156,5 +155,5 @@ class SignUpViewController: UIViewController {
         
     }
     
- 
+    
 }
