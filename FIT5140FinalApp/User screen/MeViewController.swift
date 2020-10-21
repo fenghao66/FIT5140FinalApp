@@ -34,7 +34,8 @@ class MeViewController: UIViewController {
        self.favorietView.collectionViewLayout = layout
         userImage.image = UIImage(named: "test")
     
-        // Do any additional setup after loading the view.
+        // costom the tabBar item
+        navigationController?.tabBarItem.selectedImage = UIImage(named: "user_click")
     }
     
 

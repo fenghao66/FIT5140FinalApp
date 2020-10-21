@@ -17,6 +17,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         posterImage.layer.cornerRadius = 10.0
+        posterImage.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
         posterImage.layer.masksToBounds = true
     }
     

@@ -20,7 +20,6 @@ class SearchMovieTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -36,10 +35,16 @@ class SearchMovieTableViewController: UITableViewController {
         indicator.center = self.tableView.center
         self.view.addSubview(indicator)
         
-        navigationController?.tabBarItem.image = UIImage(named: "search")
         navigationController?.tabBarItem.selectedImage = UIImage(named: "search_click")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        indicator.startAnimating()
+        indicator.backgroundColor = UIColor.clear
+        fetchMovie(listState: "top_rated")
+    }
+    // MARK: - Web request
     func searchMovie(query: String?) {
         guard let query = query, !query.isEmpty else {
             return
@@ -80,7 +85,42 @@ class SearchMovieTableViewController: UITableViewController {
         task.resume()
     }
     
-    
+    func fetchMovie(listState: String?) {
+        self.newMovies = []
+        var searchURLComponentrs = URLComponents(string: "\(REQUEST_STRING)/movie/\(listState ?? "popular")")
+        searchURLComponentrs?.queryItems = [URLQueryItem(name: "api_key", value: apiKey)]
+        
+        let jsonURL = searchURLComponentrs?.url
+        //print(jsonURL!)
+        let task = URLSession.shared.dataTask(with: jsonURL!) {
+            (data, response, error) in
+            // Regardless of response end the loading icon from the main thread
+            DispatchQueue.main.async {
+                self.indicator.stopAnimating()
+                self.indicator.hidesWhenStopped = true
+            }
+
+            if let error = error {
+                print(error)
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                let volumeData = try decoder.decode(VolumeData.self, from: data!)
+                if let movies = volumeData.results {
+                    self.newMovies.append(contentsOf: movies)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+            } catch let err {
+                print(err)
+            }
+        }
+        task.resume()
+    }
+
+
 
     // MARK: - Table view data source
 
