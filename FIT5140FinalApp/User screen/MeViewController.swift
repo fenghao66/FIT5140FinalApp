@@ -80,10 +80,10 @@ extension MeViewController: UICollectionViewDelegateFlowLayout{
     
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if (collectionView == WatchedView){
-               return 2
+               return 10
          }
                
-           return 2
+           return 10
     }
     
 }
