@@ -11,9 +11,9 @@ import Firebase
 
 class MeViewController: UIViewController {
 
+    @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var favoriteView: UICollectionView!
-    @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,34 @@ class MeViewController: UIViewController {
     
         // costom the tabBar item
         navigationController?.tabBarItem.selectedImage = UIImage(named: "user_click")
+        
+        Utilities.signOutButton(logOutButton)
+    }
+    
+    
+    
+    // sign Out action
+    @IBAction func logOutButton(_ sender: Any) {
+       
+      let alert = UIAlertController(title: "Sign Out", message: "Do you want to Sign Out", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Sign Out", style: .destructive, handler: { (action) in
+            // sign out
+            do{
+            try Auth.auth().signOut()
+        let controller = self.storyboard?.instantiateViewController(identifier: "displaViewController") as! DisplayViewController
+             self.view.window?.rootViewController = controller
+             self.view.window?.makeKeyAndVisible()
+        
+            }catch let error {
+               print("sign out failed \(error)")
+            }
+            
+        }))
+      alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+      self.present(alert, animated: true)
+        
     }
     
 

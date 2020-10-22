@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jb9-WR-hHo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kam-Et-YPF">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -260,16 +260,17 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBV-C1-mxI">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG3-Pm-oaa">
                                         <rect key="frame" x="0.0" y="85" width="160" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="EJt-ir-IEN"/>
-                                            <constraint firstAttribute="width" constant="160" id="dAo-BT-Me2"/>
+                                            <constraint firstAttribute="height" constant="25" id="CG3-cB-ix2"/>
+                                            <constraint firstAttribute="width" constant="160" id="ZMa-ZB-W2v"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="Log out  "/>
+                                        <connections>
+                                            <action selector="logOutButton:" destination="lef-8a-4J3" eventType="touchUpInside" id="bCc-NK-WLT"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="C3y-sH-Bwy"/>
@@ -404,7 +405,7 @@
                     <connections>
                         <outlet property="favoriteView" destination="Abm-Yr-XW0" id="QXJ-iB-ve2"/>
                         <outlet property="firstNameLabel" destination="Q6c-eJ-rcu" id="eVa-8Z-9a9"/>
-                        <outlet property="lastNameLabel" destination="sBV-C1-mxI" id="QKW-9r-8O1"/>
+                        <outlet property="logOutButton" destination="uG3-Pm-oaa" id="hPj-LV-cE6"/>
                         <outlet property="userImage" destination="eVj-mW-IrP" id="zLq-bX-a1S"/>
                     </connections>
                 </viewController>

@@ -44,6 +44,16 @@ class Utilities {
         button.tintColor = UIColor.white
     }
     
+    static func signOutButton(_ button:UIButton) {
+           
+           // Hollow rounded corner style
+           button.layer.borderWidth = 1
+           button.layer.borderColor = UIColor.black.cgColor
+           button.layer.cornerRadius = 20.0
+           button.tintColor = UIColor.black
+       }
+    
+    
     //refer to https://medium.com/swlh/password-validation-in-swift-5-3de161569910
     static func isPasswordValid(_ password : String) -> Bool {
         
