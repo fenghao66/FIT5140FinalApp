@@ -372,6 +372,9 @@
                                                 <state key="normal" title="Add to Favroites" image="heart">
                                                     <color key="titleColor" systemColor="labelColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addToFavorites:" destination="cbt-xG-cLf" eventType="touchUpInside" id="PIA-BT-ADq"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXu-7c-zCd">
                                                 <rect key="frame" x="174" y="361.5" width="141" height="24"/>
@@ -379,6 +382,9 @@
                                                 <state key="normal" title="Add to watchlist" image="checked">
                                                     <color key="titleColor" systemColor="labelColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addToWatchlist:" destination="cbt-xG-cLf" eventType="touchUpInside" id="Hlv-qr-mBl"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdU-dB-vNh">
                                                 <rect key="frame" x="20" y="680.5" width="335" height="32"/>
@@ -441,6 +447,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="Iea-rL-6SX"/>
                     <size key="freeformSize" width="375" height="1000"/>
+                    <connections>
+                        <outlet property="AddWatchlistButton" destination="bXu-7c-zCd" id="cn0-Zn-w4W"/>
+                        <outlet property="AddfavoritesButton" destination="Vk5-QI-RPY" id="Oey-L6-8If"/>
+                        <outlet property="backdropImage" destination="18Z-Y6-slE" id="d6u-TO-T1Q"/>
+                        <outlet property="fansLabel" destination="G6n-gd-vNT" id="awO-Kk-0iB"/>
+                        <outlet property="movieNameLabel" destination="MAt-51-2NX" id="5Y7-Nr-czm"/>
+                        <outlet property="overViewLabel" destination="8zI-GT-TnZ" id="TN8-tq-oVE"/>
+                        <outlet property="ratingLabel" destination="zac-Md-zOp" id="jlf-Zr-AOf"/>
+                        <outlet property="runTimeLabel" destination="6eX-KX-GKy" id="QtJ-Pf-f4t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVU-A5-EXi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,6 +9,18 @@ import UIKit
 
 class MovieDetailViewController: UIViewController {
 
+    @IBOutlet weak var backdropImage: UIImageView!
+    @IBOutlet weak var movieNameLabel: UILabel!
+    @IBOutlet weak var runTimeLabel: UILabel!
+    @IBOutlet weak var fansLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var overViewLabel: UILabel!
+    @IBOutlet weak var AddfavoritesButton: UIButton!
+    @IBOutlet weak var AddWatchlistButton: UIButton!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,4 +38,11 @@ class MovieDetailViewController: UIViewController {
     }
     */
 
+    @IBAction func addToFavorites(_ sender: Any) {
+    }
+    
+    @IBAction func addToWatchlist(_ sender: Any) {
+    }
+    
+    
 }
