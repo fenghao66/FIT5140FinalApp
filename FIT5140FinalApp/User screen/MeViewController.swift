@@ -12,9 +12,7 @@ import Firebase
 class MeViewController: UIViewController {
 
     @IBOutlet weak var firstNameLabel: UILabel!
-    
-    @IBOutlet weak var WatchedView: UICollectionView!
-    @IBOutlet weak var favorietView: UICollectionView!
+    @IBOutlet weak var favoriteView: UICollectionView!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     override func viewDidLoad() {
@@ -31,8 +29,8 @@ class MeViewController: UIViewController {
 //      }
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-       self.favorietView.collectionViewLayout = layout
-        userImage.image = UIImage(named: "test")
+       self.favoriteView.collectionViewLayout = layout
+        userImage.image = #imageLiteral(resourceName: "user_click")
     
         // costom the tabBar item
         navigationController?.tabBarItem.selectedImage = UIImage(named: "user_click")
@@ -43,25 +41,17 @@ class MeViewController: UIViewController {
 extension MeViewController: UICollectionViewDataSource,UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(collectionView == favorietView){
-            return 30;
-        }
         
         return 20;
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if (collectionView == WatchedView){
-            let cell1 = WatchedView.dequeueReusableCell(withReuseIdentifier: "watchedCell", for: indexPath) as! WatchedCollectionViewCell
-            cell1.watchedImage.image = #imageLiteral(resourceName: "test")
-            return cell1
-            
-        }
-        
-        
-        let cell = favorietView.dequeueReusableCell(withReuseIdentifier: "favorietCell", for: indexPath) as! FavorietCollectionViewCell
-        
-        cell.favorietImage.image = UIImage(named: "test")
+        let cell = favoriteView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionCollectionViewCell
+        cell.layer.cornerRadius = 10.0
+        cell.layer.shadowOpacity = 0.5
+        cell.layer.shadowRadius = 10
+        cell.layer.masksToBounds = false
+        cell.posterImage.image = UIImage(named: "test")
         return cell
     }
     
@@ -69,22 +59,8 @@ extension MeViewController: UICollectionViewDataSource,UICollectionViewDelegate{
     
     
 }
-extension MeViewController: UICollectionViewDelegateFlowLayout{
-    
+extension MeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-         if (collectionView == WatchedView){
-        return CGSize(width: 170, height: 150)
-        }
-        
-    return CGSize(width: 170, height: 150)
+        return CGSize(width: 166, height: 339)
     }
-    
-     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        if (collectionView == WatchedView){
-               return 10
-         }
-               
-           return 10
-    }
-    
 }
