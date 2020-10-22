@@ -19,6 +19,7 @@
 		49E5A86D253F01B7007088D6 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A86C253F01B7007088D6 /* MeViewController.swift */; };
 		49F3FD9625412AA2008EFB8D /* CollectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3FD9525412AA2008EFB8D /* CollectionCollectionViewCell.swift */; };
 		AC085C6C25417F5A00501932 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC085C6B25417F5A00501932 /* MovieDetailViewController.swift */; };
+		AC085C782541DCD600501932 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC085C772541DCD600501932 /* Constants.swift */; };
 		AC4D2904253DA068003AD179 /* SearchMovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2903253DA068003AD179 /* SearchMovieTableViewController.swift */; };
 		AC4D2908253DAA56003AD179 /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2907253DAA56003AD179 /* MovieDetail.swift */; };
 		AC4D290D253DB4E4003AD179 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D290C253DB4E4003AD179 /* MovieService.swift */; };
@@ -52,6 +53,7 @@
 		49F3FD9525412AA2008EFB8D /* CollectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		5C20A351683D91A9636A3BAE /* Pods-FIT5140FinalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FIT5140FinalApp.debug.xcconfig"; path = "Target Support Files/Pods-FIT5140FinalApp/Pods-FIT5140FinalApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AC085C6B25417F5A00501932 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		AC085C772541DCD600501932 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AC4D2903253DA068003AD179 /* SearchMovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieTableViewController.swift; sourceTree = "<group>"; };
 		AC4D2907253DAA56003AD179 /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
 		AC4D290C253DB4E4003AD179 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				ACDE637C253F2DA900ED103F /* HomeCollectionViewCell.swift */,
 				ACDE637F253F30E200ED103F /* HomeViewController.swift */,
 				AC085C6B25417F5A00501932 /* MovieDetailViewController.swift */,
+				AC085C772541DCD600501932 /* Constants.swift */,
 			);
 			path = FIT5140FinalApp;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				ACDE637D253F2DA900ED103F /* HomeCollectionViewCell.swift in Sources */,
 				AC4D290D253DB4E4003AD179 /* MovieService.swift in Sources */,
 				AC4D2904253DA068003AD179 /* SearchMovieTableViewController.swift in Sources */,
+				AC085C782541DCD600501932 /* Constants.swift in Sources */,
 				AC91EDC82534673F007C8189 /* ViewController.swift in Sources */,
 				492EBB29253DCFBA00BA9A00 /* Utilities.swift in Sources */,
 				AC4D2913253DB6E5003AD179 /* MovieCustomCell.swift in Sources */,

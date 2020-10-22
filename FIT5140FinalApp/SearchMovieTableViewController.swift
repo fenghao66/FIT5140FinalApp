@@ -9,9 +9,6 @@ import UIKit
 
 class SearchMovieTableViewController: UITableViewController {
 
-    let REQUEST_STRING = "https://api.themoviedb.org/3"
-    let apiKey = "693f8973135b3d30c467e5377ed18164"
-
     var image:UIImage = UIImage()
     var newMovies = [MovieData]()
     
@@ -49,8 +46,8 @@ class SearchMovieTableViewController: UITableViewController {
         guard let query = query, !query.isEmpty else {
             return
         }
-        var searchURLComponentrs = URLComponents(string: "\(REQUEST_STRING)/search/movie")
-        searchURLComponentrs?.queryItems = [URLQueryItem(name: "api_key", value: apiKey),
+        var searchURLComponentrs = URLComponents(string: "\(Constants.REQUEST_STRING)/search/movie")
+        searchURLComponentrs?.queryItems = [URLQueryItem(name: "api_key", value: Constants.apiKey),
                                            URLQueryItem(name: "language", value: "en-US"),
                                            URLQueryItem(name: "include_adult", value: "false"),
                                            URLQueryItem(name: "query", value: query)]
@@ -87,8 +84,8 @@ class SearchMovieTableViewController: UITableViewController {
     
     func fetchMovie(listState: String?) {
         self.newMovies = []
-        var searchURLComponentrs = URLComponents(string: "\(REQUEST_STRING)/movie/\(listState ?? "popular")")
-        searchURLComponentrs?.queryItems = [URLQueryItem(name: "api_key", value: apiKey)]
+        var searchURLComponentrs = URLComponents(string: "\(Constants.REQUEST_STRING)/movie/\(listState ?? "popular")")
+        searchURLComponentrs?.queryItems = [URLQueryItem(name: "api_key", value: Constants.apiKey)]
         
         let jsonURL = searchURLComponentrs?.url
         //print(jsonURL!)

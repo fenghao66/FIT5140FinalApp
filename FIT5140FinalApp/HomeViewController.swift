@@ -8,15 +8,12 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     @IBOutlet weak var homeCollectionView: UICollectionView!
     @IBOutlet weak var popularButton: UIButton!
     @IBOutlet weak var nowPlayingButton: UIButton!
     @IBOutlet weak var upComingButton: UIButton!
     
-    let REQUEST_STRING = "https://api.themoviedb.org/3"
-    let apiKey = "693f8973135b3d30c467e5377ed18164"
-    //var selectState: String = "popular"
     var newMovies = [MovieData]()
     
     override func viewDidLoad() {
@@ -38,6 +35,8 @@ class HomeViewController: UIViewController {
         view.backgroundColor = UIColor.white
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.tabBarItem.selectedImage = UIImage(named: "home_click")
+        
+        
         
         popularButton.setTitleColor(UIColor.black, for: .normal)
     }
@@ -72,8 +71,9 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
 //        if segue.identifier == "movieDetailSegue" {
 //            let destination = segue.destination as! MovieDetailViewController
-//            destination.delegate = self
-//        }
+//            destination.indexDelegate = self
+//            Constants.movieId = 1234
+//       }
         
     }
     
@@ -82,8 +82,8 @@ class HomeViewController: UIViewController {
     
     func fetchMovie(listState: String?) {
         self.newMovies = []
-        var searchURLComponentrs = URLComponents(string: "\(REQUEST_STRING)/movie/\(listState ?? "popular")")
-        searchURLComponentrs?.queryItems = [URLQueryItem(name: "api_key", value: apiKey)]
+        var searchURLComponentrs = URLComponents(string: "\(Constants.REQUEST_STRING)/movie/\(listState ?? "popular")")
+        searchURLComponentrs?.queryItems = [URLQueryItem(name: "api_key", value: Constants.apiKey)]
         
         let jsonURL = searchURLComponentrs?.url
         //print(jsonURL!)
@@ -118,7 +118,7 @@ class HomeViewController: UIViewController {
 }
 // MARK: - Collection view data source
 
-extension HomeViewController: UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -142,7 +142,7 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.movieTitleLabel.text = movie.title
         cell.releaseYearLabel.text = movie.releaseDate
         if movie.posterPath == nil {
-            cell.posterImage.image = nil
+            cell.posterImage.image = #imageLiteral(resourceName: "Image_not_found")
         }else{
             cell.posterImage.downloadImage(imageURLString: movie.posterPath!)
         }
@@ -150,10 +150,9 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        Constants.movieId = newMovies[indexPath.row].id
+        //cellIndex = indexPath.row
         let controller = self.storyboard?.instantiateViewController(identifier: "movieDetail") as! MovieDetailViewController
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }
-
-
