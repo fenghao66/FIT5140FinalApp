@@ -288,7 +288,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="126" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eX-KX-GKy">
-                                                                <rect key="frame" x="35" y="25" width="30.5" height="25"/>
+                                                                <rect key="frame" x="33.5" y="25" width="33.5" height="25"/>
                                                                 <fontDescription key="fontDescription" name="SFMono-Semibold" family="SF Mono" pointSize="18"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -313,7 +313,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6n-gd-vNT">
-                                                                <rect key="frame" x="25" y="25" width="50.5" height="25"/>
+                                                                <rect key="frame" x="22" y="25" width="56" height="25"/>
                                                                 <fontDescription key="fontDescription" name="SFMono-Semibold" family="SF Mono" pointSize="18"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -338,7 +338,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10\10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zac-Md-zOp">
-                                                                <rect key="frame" x="27" y="25" width="46.5" height="25"/>
+                                                                <rect key="frame" x="22" y="25" width="56" height="25"/>
                                                                 <fontDescription key="fontDescription" name="SFMono-Semibold" family="SF Mono" pointSize="18"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -349,24 +349,37 @@
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.98039215690000003" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rrk-hM-Rlj">
-                                                <rect key="frame" x="0.0" y="423" width="375" height="210"/>
+                                                <rect key="frame" x="0.0" y="423.5" width="375" height="120"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.98039215690000003" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="210" id="ucN-VT-9ql"/>
+                                                    <constraint firstAttribute="height" constant="120" id="ucN-VT-9ql"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="10" id="aFH-QQ-GHF">
-                                                    <size key="itemSize" width="128" height="128"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aFH-QQ-GHF">
+                                                    <size key="itemSize" width="80" height="120"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cF0-7H-Fhe">
-                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SimilarMovieCell" id="cF0-7H-Fhe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5xu-dE-9HP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="foA-Ow-KbP">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="80" id="FmI-NL-sy4"/>
+                                                                        <constraint firstAttribute="height" constant="120" id="o9v-Xs-rTb"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="foA-Ow-KbP" firstAttribute="centerX" secondItem="5xu-dE-9HP" secondAttribute="centerX" id="lRw-Sf-XQE"/>
+                                                                <constraint firstItem="foA-Ow-KbP" firstAttribute="centerY" secondItem="5xu-dE-9HP" secondAttribute="centerY" id="lfn-lO-wuD"/>
+                                                            </constraints>
                                                         </collectionViewCellContentView>
                                                     </collectionViewCell>
                                                 </cells>
@@ -379,7 +392,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Similar Movie" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Gk-su-FxY">
-                                                <rect key="frame" x="16" y="386" width="343" height="21"/>
+                                                <rect key="frame" x="16" y="386" width="343" height="21.5"/>
                                                 <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="18"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -413,7 +426,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdU-dB-vNh">
-                                                <rect key="frame" x="20" y="665" width="335" height="32"/>
+                                                <rect key="frame" x="20" y="575.5" width="335" height="32"/>
                                                 <color key="backgroundColor" red="0.94070392849999995" green="0.92247879509999997" blue="0.82743602989999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title=" View Trailor" image="playButton">
                                                     <color key="titleColor" systemColor="labelColor"/>
@@ -514,6 +527,7 @@
                         <outlet property="ratingLabel" destination="zac-Md-zOp" id="jlf-Zr-AOf"/>
                         <outlet property="releaseYearLabel" destination="8ht-pp-91V" id="Klk-zA-qQx"/>
                         <outlet property="runTimeLabel" destination="6eX-KX-GKy" id="QtJ-Pf-f4t"/>
+                        <outlet property="similarMovieCollectionView" destination="Rrk-hM-Rlj" id="13s-AW-Rtn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVU-A5-EXi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

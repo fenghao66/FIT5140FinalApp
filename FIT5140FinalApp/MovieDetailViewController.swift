@@ -19,23 +19,18 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var AddfavoritesButton: UIButton!
     @IBOutlet weak var AddWatchlistButton: UIButton!
     
+    @IBOutlet weak var similarMovieCollectionView: UICollectionView!
+    
     var similarMovies = [MovieData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //similarMovieCollectionView.dataSource = self
         setUI()
         fetchMovieDetail()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    // Set the UI for detail screen
     func setUI() {
         //backdropImage.layer.masksToBounds = false
         movieNameLabel.layer.cornerRadius = 10
@@ -52,16 +47,13 @@ class MovieDetailViewController: UIViewController {
     }
     
     // MARK: - Web request
-    
+    // Get movie detail by movieId
     func fetchMovieDetail() {
-        //self.newMovies = []
         var searchURLComponentrs = URLComponents(string: "\(Constants.REQUEST_STRING)/movie/\(Constants.movieId)")
         searchURLComponentrs?.queryItems = [URLQueryItem(name: "api_key", value: Constants.apiKey),
                                             URLQueryItem(name: "language", value: "en-US")]
         
         let jsonURL = searchURLComponentrs?.url
-        print(jsonURL!)
-        //print(jsonURL!)
         let task = URLSession.shared.dataTask(with: jsonURL!) {
             (data, response, error) in
             // Regardless of response end the loading icon from the main thread
@@ -89,7 +81,6 @@ class MovieDetailViewController: UIViewController {
                     }
                 }
                 if let movieTitle = volumeData.title {
-                    //let releaseYear = releaseDate[..<releaseDate.range(of: "-")!.lowerBound]
                     DispatchQueue.main.async {
                         self.movieNameLabel.text = "   " + movieTitle
                     }
@@ -134,3 +125,44 @@ class MovieDetailViewController: UIViewController {
     @IBAction func viewTrailor(_ sender: Any) {
     }
 }
+
+// MARK: - Collection view data source
+
+//extension MovieDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+//
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return 1
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return newMovies.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as! HomeCollectionViewCell
+//
+//        let movie = newMovies[indexPath.row]
+//
+//        cell.layer.cornerRadius = 10.0
+//        cell.layer.shadowOpacity = 0.5
+//        cell.layer.shadowRadius = 10
+//        cell.layer.masksToBounds = false
+//
+//        cell.movieTitleLabel.text = movie.title
+//        cell.releaseYearLabel.text = movie.releaseDate
+//        if movie.posterPath == nil {
+//            cell.posterImage.image = #imageLiteral(resourceName: "Image_not_found")
+//        }else{
+//            cell.posterImage.downloadImage(imageURLString: movie.posterPath!)
+//        }
+//        return cell
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        Constants.movieId = newMovies[indexPath.row].id
+//        //cellIndex = indexPath.row
+//        let controller = self.storyboard?.instantiateViewController(identifier: "movieDetail") as! MovieDetailViewController
+//        self.navigationController?.pushViewController(controller, animated: true)
+//    }
+//}
