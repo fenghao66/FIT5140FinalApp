@@ -21,9 +21,9 @@ class MeViewController: UIViewController {
     var movieDEtail:[String] = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        self.favoriteView.collectionViewLayout = layout
+//        let layout = UICollectionViewFlowLayout()
+//        layout.scrollDirection = .horizontal
+//        self.favoriteView.collectionViewLayout = layout
         userImage.image = #imageLiteral(resourceName: "user_click")
         
         // costom the tabBar item
@@ -170,10 +170,11 @@ extension MeViewController: UICollectionViewDataSource,UICollectionViewDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = favoriteView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionCollectionViewCell
+        
         cell.layer.cornerRadius = 10.0
         cell.layer.shadowOpacity = 0.5
-        cell.layer.shadowRadius = 10
+        cell.layer.shadowRadius = 5
         cell.layer.masksToBounds = false
         
         let movieDetail = movieCollection[indexPath.row]

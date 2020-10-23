@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        homeCollectionView.dataSource = self
+        //homeCollectionView.dataSource = self
         //self.newMovies = []
         fetchMovie(listState: "popular")
         
