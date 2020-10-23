@@ -146,6 +146,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         }else{
             cell.posterImage.downloadImage(imageURLString: movie.posterPath!)
         }
+        
+      
         return cell
     }
     
