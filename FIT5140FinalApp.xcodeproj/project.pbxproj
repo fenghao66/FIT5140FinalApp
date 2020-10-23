@@ -13,6 +13,7 @@
 		492EBB29253DCFBA00BA9A00 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492EBB28253DCFBA00BA9A00 /* Utilities.swift */; };
 		49927BA52535E00900C10181 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49927BA42535E00900C10181 /* GoogleService-Info.plist */; };
 		49C2FDA82542F832005DBEB9 /* MovieDetailNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C2FDA72542F832005DBEB9 /* MovieDetailNew.swift */; };
+		49C2FDAA25432230005DBEB9 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C2FDA925432230005DBEB9 /* Video.swift */; };
 		49E5A860253E8AB6007088D6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A85F253E8AB6007088D6 /* TabBarViewController.swift */; };
 		49E5A864253EB02E007088D6 /* wolf.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 49E5A862253EB02D007088D6 /* wolf.MOV */; };
 		49E5A867253ED2B0007088D6 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5A866253ED2B0007088D6 /* ForgetPasswordViewController.swift */; };
@@ -47,6 +48,7 @@
 		492EBB28253DCFBA00BA9A00 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		49927BA42535E00900C10181 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		49C2FDA72542F832005DBEB9 /* MovieDetailNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailNew.swift; sourceTree = "<group>"; };
+		49C2FDA925432230005DBEB9 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		49E5A85F253E8AB6007088D6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		49E5A862253EB02D007088D6 /* wolf.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = wolf.MOV; sourceTree = "<group>"; };
 		49E5A866253ED2B0007088D6 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				ACFC85FE253DEBE3009B56E0 /* MovieData.swift */,
 				ACFC8601253DEC19009B56E0 /* VolumeData.swift */,
 				49C2FDA72542F832005DBEB9 /* MovieDetailNew.swift */,
+				49C2FDA925432230005DBEB9 /* Video.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				492EBB20253DC40700BA9A00 /* SignInViewController.swift in Sources */,
 				AC085C6C25417F5A00501932 /* MovieDetailViewController.swift in Sources */,
 				AC4D2910253DB53C003AD179 /* MovieStore.swift in Sources */,
+				49C2FDAA25432230005DBEB9 /* Video.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

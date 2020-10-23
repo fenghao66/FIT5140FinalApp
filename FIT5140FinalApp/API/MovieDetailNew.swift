@@ -17,6 +17,7 @@ class MovieDetailNew: NSObject,Decodable {
    var voteCount: Int?
    var voteAvg: Double?
    var overView: String?
+    var videos:[videos]?
     
     private enum CodingKeys:String,CodingKey{
        case id
@@ -27,6 +28,7 @@ class MovieDetailNew: NSObject,Decodable {
        case voteCount = "vote_count"
        case voteAvg = "vote_average"
        case backdrop_path = "backdrop_path"
+       case videos = "videos"
     }
     
     required init(from decoder: Decoder) throws{
@@ -40,7 +42,6 @@ class MovieDetailNew: NSObject,Decodable {
         voteAvg = try? movieContainer.decode(Double.self, forKey: .voteAvg)
         overView = try? movieContainer.decode(String.self, forKey: .overView)
         backdrop_path = try? movieContainer.decode(String.self, forKey: .backdrop_path)
-        
     }
     
      

@@ -88,12 +88,14 @@ class MeViewController: UIViewController {
     }
     
     @IBAction func fetchFavoriteAction(_ sender: Any) {
+        
         self.refreshMovieDetailCollection(idCollection: self.favoriet)
         
     }
     
     
     @IBAction func fetchWatchedAction(_ sender: Any) {
+        
         self.refreshMovieDetailCollection(idCollection: self.watched)
     }
     
@@ -113,16 +115,13 @@ class MeViewController: UIViewController {
             do{
                 let decoder = JSONDecoder()
           let objectData = try decoder.decode(MovieDetailNew.self, from: data!)
-//                if let movieOverview = objectData.overView {
-//                      DispatchQueue.main.async {
-//                        self.movieDEtail.append(movieOverview)
-//                        print("movieOverview!!!" + movieOverview)
-//                                 }
-//                             }
+
                 self.movieCollection.append(objectData)
                 DispatchQueue.main.async {
                     self.favoriteView.reloadData()
                 }
+                
+                print("videos count !!!!!!!\(objectData.videos?.count)")
              
             }catch let error{
                 print(error)
@@ -176,6 +175,7 @@ extension MeViewController: UICollectionViewDataSource,UICollectionViewDelegate{
         cell.layer.shadowOpacity = 0.5
         cell.layer.shadowRadius = 10
         cell.layer.masksToBounds = false
+        
         let movieDetail = movieCollection[indexPath.row]
         if movieDetail.backdrop_path == nil {
             cell.posterImage.image = UIImage(named: "Image_not_found")
