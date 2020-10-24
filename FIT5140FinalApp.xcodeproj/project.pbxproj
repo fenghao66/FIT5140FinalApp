@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		491CFA21254407F80040C000 /* EditMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491CFA20254407F80040C000 /* EditMeViewController.swift */; };
 		492EBB20253DC40700BA9A00 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492EBB1F253DC40700BA9A00 /* SignInViewController.swift */; };
 		492EBB22253DC41600BA9A00 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492EBB21253DC41600BA9A00 /* SignUpViewController.swift */; };
 		492EBB24253DC42300BA9A00 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492EBB23253DC42300BA9A00 /* DisplayViewController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		491CFA20254407F80040C000 /* EditMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMeViewController.swift; sourceTree = "<group>"; };
 		492EBB1F253DC40700BA9A00 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		492EBB21253DC41600BA9A00 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		492EBB23253DC42300BA9A00 /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				49E5A86C253F01B7007088D6 /* MeViewController.swift */,
 				49F3FD9525412AA2008EFB8D /* CollectionCollectionViewCell.swift */,
 				49E61C1B2543DA64006AD812 /* SeeMoreCollectionViewCell.swift */,
+				491CFA20254407F80040C000 /* EditMeViewController.swift */,
 			);
 			path = "User screen";
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				49C2FDA82542F832005DBEB9 /* MovieDetailNew.swift in Sources */,
 				AC4D290D253DB4E4003AD179 /* MovieService.swift in Sources */,
 				AC4D2904253DA068003AD179 /* SearchMovieTableViewController.swift in Sources */,
+				491CFA21254407F80040C000 /* EditMeViewController.swift in Sources */,
 				AC085C782541DCD600501932 /* Constants.swift in Sources */,
 				AC91EDC82534673F007C8189 /* ViewController.swift in Sources */,
 				492EBB29253DCFBA00BA9A00 /* Utilities.swift in Sources */,
