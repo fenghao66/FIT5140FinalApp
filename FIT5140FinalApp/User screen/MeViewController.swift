@@ -15,6 +15,10 @@ class MeViewController: UIViewController {
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var favoriteView: UICollectionView!
     @IBOutlet weak var userImage: UIImageView!
+    
+    @IBOutlet weak var watchedButton: UIButton!
+    
+    @IBOutlet weak var favoriteButton: UIButton!
     var favoriet:[Int] = [Int]()
     var watched:[Int] = [Int]()
     var movieCollection:[MovieDetailNew] = [MovieDetailNew]()
@@ -30,6 +34,8 @@ class MeViewController: UIViewController {
         navigationController?.tabBarItem.selectedImage = UIImage(named: "user_click")
         
         Utilities.signOutButton(logOutButton)
+        favoriteButton.setTitleColor(UIColor.red, for: .normal)
+        watchedButton.setTitleColor(UIColor.gray, for: .normal)
       
     }
     
@@ -89,13 +95,16 @@ class MeViewController: UIViewController {
     
     @IBAction func fetchFavoriteAction(_ sender: Any) {
         
+        favoriteButton.setTitleColor(UIColor.red, for: .normal)
+        watchedButton.setTitleColor(UIColor.gray, for: .normal)
         self.refreshMovieDetailCollection(idCollection: self.favoriet)
         
     }
     
     
     @IBAction func fetchWatchedAction(_ sender: Any) {
-        
+        favoriteButton.setTitleColor(UIColor.gray, for: .normal)
+        watchedButton.setTitleColor(UIColor.red, for: .normal)
         self.refreshMovieDetailCollection(idCollection: self.watched)
     }
     
@@ -120,8 +129,6 @@ class MeViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.favoriteView.reloadData()
                 }
-                
-                print("videos count !!!!!!!\(objectData.videos?.count)")
              
             }catch let error{
                 print(error)
