@@ -39,7 +39,7 @@ class MeViewController: UIViewController {
         navigationController?.tabBarItem.selectedImage = UIImage(named: "user_click")
         
         Utilities.signOutButton(logOutButton)
-        favoriteButton.setTitleColor(UIColor.red, for: .normal)
+        favoriteButton.setTitleColor(UIColor.systemOrange, for: .normal)
         watchedButton.setTitleColor(UIColor.gray, for: .normal)
         
     }
@@ -131,7 +131,7 @@ class MeViewController: UIViewController {
     
     @IBAction func fetchFavoriteAction(_ sender: Any) {
         
-        favoriteButton.setTitleColor(UIColor.red, for: .normal)
+        favoriteButton.setTitleColor(UIColor.systemOrange, for: .normal)
         watchedButton.setTitleColor(UIColor.gray, for: .normal)
         self.refreshMovieDetailCollection(idCollection: self.favoriet)
         
@@ -140,7 +140,7 @@ class MeViewController: UIViewController {
     
     @IBAction func fetchWatchedAction(_ sender: Any) {
         favoriteButton.setTitleColor(UIColor.gray, for: .normal)
-        watchedButton.setTitleColor(UIColor.red, for: .normal)
+        watchedButton.setTitleColor(UIColor.systemOrange, for: .normal)
         self.refreshMovieDetailCollection(idCollection: self.watched)
     }
     

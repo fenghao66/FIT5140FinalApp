@@ -628,7 +628,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BA4-dQ-XHP">
                                 <rect key="frame" x="16" y="200" width="111" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Favorite Movies "/>
+                                <state key="normal" title="Favorite Movies ">
+                                    <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="fetchFavoriteAction:" destination="lef-8a-4J3" eventType="touchUpInside" id="iNj-sg-fdB"/>
                                 </connections>
@@ -647,7 +649,7 @@
                                 <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kP1-Wh-K4D">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="7" y="44" width="361" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="10" id="thD-Zz-Jje">
                                     <size key="itemSize" width="170" height="371"/>
@@ -769,13 +771,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="kP1-Wh-K4D" firstAttribute="bottom" secondItem="99U-6n-Xrk" secondAttribute="bottom" id="6j0-57-U9r"/>
-                            <constraint firstItem="kP1-Wh-K4D" firstAttribute="leading" secondItem="99U-6n-Xrk" secondAttribute="leading" id="DrM-nR-ouR"/>
+                            <constraint firstItem="kP1-Wh-K4D" firstAttribute="top" secondItem="99U-6n-Xrk" secondAttribute="top" id="Aj5-E6-Hu3"/>
                             <constraint firstItem="99U-6n-Xrk" firstAttribute="trailing" secondItem="AMZ-xW-nhw" secondAttribute="trailing" constant="107" id="Kyg-Fp-Jfz"/>
-                            <constraint firstItem="kP1-Wh-K4D" firstAttribute="trailing" secondItem="99U-6n-Xrk" secondAttribute="trailing" id="gaN-Iz-S3i"/>
+                            <constraint firstItem="kP1-Wh-K4D" firstAttribute="leading" secondItem="99U-6n-Xrk" secondAttribute="leading" constant="7" id="bsI-ce-Iuk"/>
+                            <constraint firstItem="kP1-Wh-K4D" firstAttribute="bottom" secondItem="99U-6n-Xrk" secondAttribute="bottom" id="d54-ps-Iep"/>
                             <constraint firstItem="AMZ-xW-nhw" firstAttribute="top" secondItem="99U-6n-Xrk" secondAttribute="top" constant="15" id="h8g-9I-Agm"/>
                             <constraint firstItem="AMZ-xW-nhw" firstAttribute="leading" secondItem="99U-6n-Xrk" secondAttribute="leading" constant="108" id="oJ7-tk-LJ0"/>
-                            <constraint firstItem="kP1-Wh-K4D" firstAttribute="top" secondItem="99U-6n-Xrk" secondAttribute="top" id="pAG-bv-6CV"/>
+                            <constraint firstItem="99U-6n-Xrk" firstAttribute="trailing" secondItem="kP1-Wh-K4D" secondAttribute="trailing" constant="7" id="pyI-gW-H8I"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="99U-6n-Xrk"/>
                     </view>
