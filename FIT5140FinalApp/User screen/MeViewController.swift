@@ -287,48 +287,49 @@ extension MeViewController: UICollectionViewDataSource,UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (collectionView == seeMoreCollectionView){
-            Constants.movieId = movieCollection[indexPath.row].id!
-            //cellIndex = indexPath.row
-            let controller = self.storyboard?.instantiateViewController(identifier: "movieDetail") as! MovieDetailViewController
-            self.navigationController?.pushViewController(controller, animated: true)
-            showSeeMoreCollectionView = false
-            
+             didSelectedItem(id: indexPath.row)
         }else{
-            
-            let alert = UIAlertController(title: "Menu", message: nil, preferredStyle: .actionSheet)
-            
-    alert.addAction(UIAlertAction(title: "Movie Detail View", style: .default, handler: { (action) in
-              //jump to movie detail view controller
-        Constants.movieId = self.movieCollection[indexPath.row].id!
-                           //cellIndex = indexPath.row
-    let controller = self.storyboard?.instantiateViewController(identifier: "movieDetail") as! MovieDetailViewController
-  self.navigationController?.pushViewController(controller, animated: true)
-      
-            }))
-            
-            alert.addAction(UIAlertAction(title: "Delete This Movie", style: .destructive, handler: { (action) in
-                if self.watchedButtonClicked{
-            self.watched = self.filterId!.filter{$0 != self.filterId![indexPath.row]}
-       self.movieCollection = self.movieCollection.filter{$0 != self.movieCollection[indexPath.row]}
-             self.updateData(name: "watched", value: self.watched)
-                    self.favoriteView.reloadData()
-             }else{
-              self.favoriet = self.filterId!.filter{$0 != self.filterId![indexPath.row]}
-                    
-           self.movieCollection = self.movieCollection.filter{$0 != self.movieCollection[indexPath.row]}
-             self.updateData(name: "favorites", value: self.favoriet)
-             self.favoriteView.reloadData()
-                }
-            }))
-            
-            alert.addAction(UIAlertAction(title: "Cancle", style: .cancel, handler: nil))
-            
-            
-            self.present(alert,animated: true)
+          didSelectedItem(id: indexPath.row)
            
         }
     }
 
+    func didSelectedItem(id:Int){
+    let alert = UIAlertController(title: "Menu", message: nil, preferredStyle: .actionSheet)
+              
+      alert.addAction(UIAlertAction(title: "Movie Detail View", style: .default, handler: { (action) in
+          //jump to movie detail view controller
+        self.showSeeMoreCollectionView = false
+          Constants.movieId = self.movieCollection[id].id!
+                             //cellIndex = indexPath.row
+      let controller = self.storyboard?.instantiateViewController(identifier: "movieDetail") as! MovieDetailViewController
+    self.navigationController?.pushViewController(controller, animated: true)
+        
+              }))
+              
+              alert.addAction(UIAlertAction(title: "Delete This Movie", style: .destructive, handler: { (action) in
+                  if self.watchedButtonClicked{
+              self.watched = self.filterId!.filter{$0 != self.filterId![id]}
+         self.movieCollection = self.movieCollection.filter{$0 != self.movieCollection[id]}
+               self.updateData(name: "watched", value: self.watched)
+                      self.favoriteView.reloadData()
+               }else{
+                self.favoriet = self.filterId!.filter{$0 != self.filterId![id]}
+                      
+             self.movieCollection = self.movieCollection.filter{$0 != self.movieCollection[id]}
+               self.updateData(name: "favorites", value: self.favoriet)
+               self.favoriteView.reloadData()
+                  }
+              }))
+              
+              alert.addAction(UIAlertAction(title: "Cancle", style: .cancel, handler: nil))
+              
+              
+              self.present(alert,animated: true)
+             
+          }
+    
+    
     
 }
 extension MeViewController: UICollectionViewDelegateFlowLayout {
