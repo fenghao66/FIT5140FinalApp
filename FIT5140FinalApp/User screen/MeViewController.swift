@@ -28,6 +28,7 @@ class MeViewController: UIViewController {
     var movieCollection:[MovieDetailNew] = [MovieDetailNew]()
     var movieDEtail:[String] = [String]()
     var seeMoreBoolean:Bool = true
+    var showSeeMoreCollectionView:Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
         //        let layout = UICollectionViewFlowLayout()
@@ -47,7 +48,10 @@ class MeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         getUserData()
         print("!!!!!! movie Collection \(self.movieCollection.count)")
-        seeMoreCollectionView.isHidden = true
+        if showSeeMoreCollectionView{
+        
+           seeMoreCollectionView.isHidden = true
+        }
         
     }
     @IBAction func seeMoreAction(_ sender: Any) {
@@ -258,6 +262,23 @@ extension MeViewController: UICollectionViewDataSource,UICollectionViewDelegate{
         return cell
     }
     
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if (collectionView == seeMoreCollectionView){
+            Constants.movieId = movieCollection[indexPath.row].id!
+            //cellIndex = indexPath.row
+            let controller = self.storyboard?.instantiateViewController(identifier: "movieDetail") as! MovieDetailViewController
+            self.navigationController?.pushViewController(controller, animated: true)
+          showSeeMoreCollectionView = false
+            
+        }else{
+        
+        Constants.movieId = movieCollection[indexPath.row].id!
+        //cellIndex = indexPath.row
+        let controller = self.storyboard?.instantiateViewController(identifier: "movieDetail") as! MovieDetailViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
     
     
     
