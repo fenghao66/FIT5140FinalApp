@@ -22,7 +22,7 @@ class VolumeData: NSObject, Decodable {
     var voteAvg: Double?
     var runtime: Int?
     var genres: [MovieGenre]?
-    
+    var  id: Int?
 
     private enum CodingKeys: String, CodingKey {
         case page
@@ -38,5 +38,6 @@ class VolumeData: NSObject, Decodable {
         case voteAvg = "vote_average"
         case runtime
         case genres
+        case id = "id"
     }
 }

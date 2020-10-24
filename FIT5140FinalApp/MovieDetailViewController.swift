@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class MovieDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var backdropImage: UIImageView!
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var releaseYearLabel: UILabel!
@@ -26,7 +28,10 @@ class MovieDetailViewController: UIViewController {
     var similarMovies = [MovieData]()
     var movieTrailor = [TrailorData]()
     var trailorKey: String?
-    
+    var movieId: Int?
+    var favoriet:[Int] = [Int]()
+    var watched:[Int] = [Int]()
+    var uId:String?
     override func viewDidLoad() {
         super.viewDidLoad()
         //similarMovieCollectionView.dataSource = self
@@ -34,6 +39,7 @@ class MovieDetailViewController: UIViewController {
         fetchMovieDetail()
         fetchSimilarMovie()
         fetchMovieTrailor()
+        getUserData()
     }
     
     // Set the UI for detail screen
@@ -67,10 +73,10 @@ class MovieDetailViewController: UIViewController {
             (data, response, error) in
             // Regardless of response end the loading icon from the main thread
             DispatchQueue.main.async {
-//                self.indicator.stopAnimating()
-//                self.indicator.hidesWhenStopped = true
+                //                self.indicator.stopAnimating()
+                //                self.indicator.hidesWhenStopped = true
             }
-
+            
             if let error = error {
                 print(error)
                 return
@@ -117,6 +123,10 @@ class MovieDetailViewController: UIViewController {
                 } else {
                     self.backdropImage.downloadImage(imageURLString: volumeData.backdropPath!)
                 }
+                if volumeData.id != nil {
+                    self.movieId = volumeData.id!
+                }
+                
             } catch let err {
                 print(err)
             }
@@ -153,7 +163,7 @@ class MovieDetailViewController: UIViewController {
                         self.similarMovieCollectionView.removeFromSuperview()
                     }
                 }
-                  
+                
             } catch let err {
                 print(err)
             }
@@ -192,11 +202,60 @@ class MovieDetailViewController: UIViewController {
         }
         task.resume()
     }
-
+    
     @IBAction func addToFavorites(_ sender: Any) {
+        self.favoriet.append(self.movieId!)
+        updateData(name: "favorites", value: self.favoriet)
+        
     }
     
     @IBAction func addToWatchlist(_ sender: Any) {
+        self.watched.append(self.movieId!)
+        updateData(name: "watched", value: self.watched)
+    }
+    
+    func getUserData(){
+        let uid = Auth.auth().currentUser?.uid
+        self.uId = uid
+        //get data
+        //refer https://firebase.google.com/docs/firestore/quickstart
+        let db = Firestore.firestore()
+        
+        db.collection("users").document(uid!).getDocument { (query, error) in
+            if error == nil{
+                if query != nil && query!.exists{
+                    let documentData = query?.data()
+                    self.favoriet = documentData!["favorites"] as! [Int]
+                    self.watched = documentData!["watched"] as! [Int]
+                }else{
+                    
+                    print("get data error: \(String(describing: error))")
+                }
+            }
+        }
+    }
+    
+    func updateData(name: String,value: [Int]){
+        let db = Firestore.firestore()
+//        let uid = Auth.auth().currentUser?.uid
+        db.collection("users").document(self.uId!).updateData(["\(name)": value]) { (error) in
+            if let error = error{
+                self.displayMessage(title: "Failed", message: error.localizedDescription)
+            }else {
+                self.displayMessage(title: "Success", message: "Added successfully")
+                
+            }
+        }
+        
+        
+        
+    }
+    func displayMessage(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message,
+                                                preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss",
+                                                style: UIAlertAction.Style.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func viewTrailor(_ sender: Any) {
@@ -210,19 +269,19 @@ class MovieDetailViewController: UIViewController {
 //MARK: - Collection view data source
 
 extension MovieDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return similarMovies.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SimilarMovieCell", for: indexPath) as! SimilarMovieCollectionViewCell
-
+        
         let movie = similarMovies[indexPath.row]
         cell.movieTitleLabel.text = movie.title
         cell.voteAvgLabel.text = String(movie.voteAvg ?? 0.0)
@@ -233,7 +292,7 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
         }
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         Constants.movieId = similarMovies[indexPath.row].id
         //cellIndex = indexPath.row
