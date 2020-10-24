@@ -29,6 +29,9 @@ class MeViewController: UIViewController {
     var movieDEtail:[String] = [String]()
     var seeMoreBoolean:Bool = true
     var showSeeMoreCollectionView:Bool = true
+    var uId:String?
+    var filterId:[Int]?
+    var watchedButtonClicked:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         //        let layout = UICollectionViewFlowLayout()
@@ -49,8 +52,8 @@ class MeViewController: UIViewController {
         getUserData()
         print("!!!!!! movie Collection \(self.movieCollection.count)")
         if showSeeMoreCollectionView{
-        
-           seeMoreCollectionView.isHidden = true
+            
+            seeMoreCollectionView.isHidden = true
         }
         
     }
@@ -86,10 +89,20 @@ class MeViewController: UIViewController {
         
     }
     
+    func updateData(name: String,value: [Int]){
+        let db = Firestore.firestore()
+        //        let uid = Auth.auth().currentUser?.uid
+        db.collection("users").document(self.uId!).updateData(["\(name)": value]) { (error) in
+            if let error = error{
+                self.displayMessage(title: "Failed", message: error.localizedDescription)
+            }
+        }
+        
+    }
     
     func getUserData(){
         let uid = Auth.auth().currentUser?.uid
-        
+        self.uId = uid!
         //get data
         //refer https://firebase.google.com/docs/firestore/quickstart
         let db = Firestore.firestore()
@@ -134,7 +147,7 @@ class MeViewController: UIViewController {
     }
     
     @IBAction func fetchFavoriteAction(_ sender: Any) {
-        
+         self.watchedButtonClicked = false
         favoriteButton.setTitleColor(UIColor.systemOrange, for: .normal)
         watchedButton.setTitleColor(UIColor.gray, for: .normal)
         self.refreshMovieDetailCollection(idCollection: self.favoriet)
@@ -143,6 +156,7 @@ class MeViewController: UIViewController {
     
     
     @IBAction func fetchWatchedAction(_ sender: Any) {
+        self.watchedButtonClicked = true
         favoriteButton.setTitleColor(UIColor.gray, for: .normal)
         watchedButton.setTitleColor(UIColor.systemOrange, for: .normal)
         self.refreshMovieDetailCollection(idCollection: self.watched)
@@ -150,6 +164,7 @@ class MeViewController: UIViewController {
     
     func getMovieDetailAccordingToMovieId(id: Int){
         movieCollection = [MovieDetailNew]()
+        filterId = [Int]()
         let searchString = Constants.REQUEST_STRING + "/movie/\(id)?api_key=" + Constants.apiKey + "&append_to_response=videos"
         let jsonURL = URL(string: searchString.addingPercentEncoding(withAllowedCharacters:
             .urlQueryAllowed)!)
@@ -166,6 +181,7 @@ class MeViewController: UIViewController {
                 let objectData = try decoder.decode(MovieDetailNew.self, from: data!)
                 
                 self.movieCollection.append(objectData)
+                self.filterId?.append(objectData.id!)
                 DispatchQueue.main.async {
                     self.favoriteView.reloadData()
                 }
@@ -179,11 +195,19 @@ class MeViewController: UIViewController {
         
         
     }
+    func displayMessage(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message,preferredStyle: UIAlertController.Style.alert)
+        
+    alertController.addAction(UIAlertAction(title: "Dismiss",style: UIAlertAction.Style.default,handler: nil))
+        
+    self.present(alertController, animated: true, completion: nil)
+    }
+    
     
     // sign Out action
     @IBAction func logOutButton(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Sign Out", message: "Do you want to Sign Out", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Sign Out", message: "Do you want to Sign Out", preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "Sign Out", style: .destructive, handler: { (action) in
             // sign out
@@ -203,8 +227,6 @@ class MeViewController: UIViewController {
         self.present(alert, animated: true)
         
     }
-    
-    
 }
 extension MeViewController: UICollectionViewDataSource,UICollectionViewDelegate{
     
@@ -231,7 +253,7 @@ extension MeViewController: UICollectionViewDataSource,UICollectionViewDelegate{
                 cell1.seeMoreImage.image = UIImage(named: "Image_not_found")
             }else{
                 
-            cell1.seeMoreImage.downloadPoster(imageURLString: movieDetail1.backdrop_path!)
+                cell1.seeMoreImage.downloadPoster(imageURLString: movieDetail1.backdrop_path!)
             }
             
             cell1.seeMoreTitleLabel.text = movieDetail1.title!
@@ -262,25 +284,51 @@ extension MeViewController: UICollectionViewDataSource,UICollectionViewDelegate{
         return cell
     }
     
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (collectionView == seeMoreCollectionView){
             Constants.movieId = movieCollection[indexPath.row].id!
             //cellIndex = indexPath.row
             let controller = self.storyboard?.instantiateViewController(identifier: "movieDetail") as! MovieDetailViewController
             self.navigationController?.pushViewController(controller, animated: true)
-          showSeeMoreCollectionView = false
+            showSeeMoreCollectionView = false
             
         }else{
-        
-        Constants.movieId = movieCollection[indexPath.row].id!
-        //cellIndex = indexPath.row
-        let controller = self.storyboard?.instantiateViewController(identifier: "movieDetail") as! MovieDetailViewController
-        self.navigationController?.pushViewController(controller, animated: true)
+            
+            let alert = UIAlertController(title: "Menu", message: nil, preferredStyle: .actionSheet)
+            
+    alert.addAction(UIAlertAction(title: "Movie Detail View", style: .default, handler: { (action) in
+              //jump to movie detail view controller
+        Constants.movieId = self.movieCollection[indexPath.row].id!
+                           //cellIndex = indexPath.row
+    let controller = self.storyboard?.instantiateViewController(identifier: "movieDetail") as! MovieDetailViewController
+  self.navigationController?.pushViewController(controller, animated: true)
+      
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Delete This Movie", style: .destructive, handler: { (action) in
+                if self.watchedButtonClicked{
+            self.watched = self.filterId!.filter{$0 != self.filterId![indexPath.row]}
+       self.movieCollection = self.movieCollection.filter{$0 != self.movieCollection[indexPath.row]}
+             self.updateData(name: "watched", value: self.watched)
+                    self.favoriteView.reloadData()
+             }else{
+              self.favoriet = self.filterId!.filter{$0 != self.filterId![indexPath.row]}
+                    
+           self.movieCollection = self.movieCollection.filter{$0 != self.movieCollection[indexPath.row]}
+             self.updateData(name: "favorites", value: self.favoriet)
+             self.favoriteView.reloadData()
+                }
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancle", style: .cancel, handler: nil))
+            
+            
+            self.present(alert,animated: true)
+           
         }
     }
-    
-    
+
     
 }
 extension MeViewController: UICollectionViewDelegateFlowLayout {

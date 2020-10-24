@@ -247,9 +247,9 @@ class MovieDetailViewController: UIViewController {
             }
         }
         
-        
-        
     }
+    
+    
     func displayMessage(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message,
                                                 preferredStyle: UIAlertController.Style.alert)

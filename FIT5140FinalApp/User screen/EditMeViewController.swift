@@ -70,7 +70,7 @@ class EditMeViewController: UIViewController {
     
     @IBAction func changePasswordAction(_ sender: Any) {
         
-        let alert = UIAlertController(title: "What's your register email", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "What's your register email ?", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancle", style: .cancel, handler: nil))
         alert.addTextField { (textField) in
             textField.placeholder = "Input register email"
