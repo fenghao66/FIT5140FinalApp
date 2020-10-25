@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kam-Et-YPF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jb9-WR-hHo">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -908,29 +908,32 @@
         <!--Cinemas-->
         <scene sceneID="yzG-0a-g9V">
             <objects>
-                <viewController id="fCw-UB-orB" sceneMemberID="viewController">
+                <viewController id="fCw-UB-orB" customClass="CinemaViewController" customModule="FIT5140FinalApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mqB-O7-70f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MY6-HT-sd9">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="333"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MY6-HT-sd9">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                             </mapView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y0M-0p-0Zv">
-                                <rect key="frame" x="0.0" y="334" width="375" height="333"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="MY6-HT-sd9" firstAttribute="top" secondItem="wzq-Mc-H9D" secondAttribute="top" id="1B6-Wp-2fQ"/>
+                            <constraint firstItem="MY6-HT-sd9" firstAttribute="bottom" secondItem="wzq-Mc-H9D" secondAttribute="bottom" id="Emv-EM-bkF"/>
+                            <constraint firstItem="MY6-HT-sd9" firstAttribute="leading" secondItem="wzq-Mc-H9D" secondAttribute="leading" id="KKU-Js-bd7"/>
+                            <constraint firstItem="MY6-HT-sd9" firstAttribute="trailing" secondItem="wzq-Mc-H9D" secondAttribute="trailing" id="xpV-Nl-5ze"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wzq-Mc-H9D"/>
                     </view>
                     <navigationItem key="navigationItem" title="Cinemas" id="82a-zQ-PS4"/>
+                    <connections>
+                        <outlet property="mapView" destination="MY6-HT-sd9" id="OSL-Gy-gyE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Wy-Qm-MUo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-858" y="1557"/>
+            <point key="canvasLocation" x="-858.39999999999998" y="1556.6716641679161"/>
         </scene>
         <!--Movies Lover-->
         <scene sceneID="cqE-QL-Jnc">

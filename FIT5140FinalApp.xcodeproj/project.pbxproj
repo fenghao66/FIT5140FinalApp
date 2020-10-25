@@ -12,6 +12,8 @@
 		492EBB22253DC41600BA9A00 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492EBB21253DC41600BA9A00 /* SignUpViewController.swift */; };
 		492EBB24253DC42300BA9A00 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492EBB23253DC42300BA9A00 /* DisplayViewController.swift */; };
 		492EBB29253DCFBA00BA9A00 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492EBB28253DCFBA00BA9A00 /* Utilities.swift */; };
+		495B9C272545A0FA00323505 /* nearbyCinemas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B9C262545A0FA00323505 /* nearbyCinemas.swift */; };
+		495B9C2A2545B35D00323505 /* CinemaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B9C292545B35D00323505 /* CinemaViewController.swift */; };
 		49927BA52535E00900C10181 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49927BA42535E00900C10181 /* GoogleService-Info.plist */; };
 		49C2FDA82542F832005DBEB9 /* MovieDetailNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C2FDA72542F832005DBEB9 /* MovieDetailNew.swift */; };
 		49C2FDAA25432230005DBEB9 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C2FDA925432230005DBEB9 /* Video.swift */; };
@@ -52,6 +54,8 @@
 		492EBB21253DC41600BA9A00 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		492EBB23253DC42300BA9A00 /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		492EBB28253DCFBA00BA9A00 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		495B9C262545A0FA00323505 /* nearbyCinemas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearbyCinemas.swift; sourceTree = "<group>"; };
+		495B9C292545B35D00323505 /* CinemaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaViewController.swift; sourceTree = "<group>"; };
 		49927BA42535E00900C10181 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		49C2FDA72542F832005DBEB9 /* MovieDetailNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailNew.swift; sourceTree = "<group>"; };
 		49C2FDA925432230005DBEB9 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
@@ -122,6 +126,14 @@
 			path = utility;
 			sourceTree = "<group>";
 		};
+		495B9C282545B33D00323505 /* Cinema */ = {
+			isa = PBXGroup;
+			children = (
+				495B9C292545B35D00323505 /* CinemaViewController.swift */,
+			);
+			path = Cinema;
+			sourceTree = "<group>";
+		};
 		49E5A861253E9DE0007088D6 /* material */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +183,7 @@
 		AC91EDC22534673F007C8189 /* FIT5140FinalApp */ = {
 			isa = PBXGroup;
 			children = (
+				495B9C282545B33D00323505 /* Cinema */,
 				49E5A86B253F015E007088D6 /* User screen */,
 				49E5A861253E9DE0007088D6 /* material */,
 				492EBB25253DCE0D00BA9A00 /* utility */,
@@ -208,6 +221,7 @@
 				49C2FDA72542F832005DBEB9 /* MovieDetailNew.swift */,
 				49C2FDA925432230005DBEB9 /* Video.swift */,
 				AC8BF39825437BDF0083C936 /* TrailorData.swift */,
+				495B9C262545A0FA00323505 /* nearbyCinemas.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -339,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49E5A86D253F01B7007088D6 /* MeViewController.swift in Sources */,
+				495B9C2A2545B35D00323505 /* CinemaViewController.swift in Sources */,
 				49E5A860253E8AB6007088D6 /* TabBarViewController.swift in Sources */,
 				492EBB22253DC41600BA9A00 /* SignUpViewController.swift in Sources */,
 				ACDE637D253F2DA900ED103F /* HomeCollectionViewCell.swift in Sources */,
@@ -362,6 +377,7 @@
 				ACDE6380253F30E200ED103F /* HomeViewController.swift in Sources */,
 				49F3FD9625412AA2008EFB8D /* CollectionCollectionViewCell.swift in Sources */,
 				ACFC85FF253DEBE3009B56E0 /* MovieData.swift in Sources */,
+				495B9C272545A0FA00323505 /* nearbyCinemas.swift in Sources */,
 				AC91EDC62534673F007C8189 /* SceneDelegate.swift in Sources */,
 				492EBB20253DC40700BA9A00 /* SignInViewController.swift in Sources */,
 				AC085C6C25417F5A00501932 /* MovieDetailViewController.swift in Sources */,
