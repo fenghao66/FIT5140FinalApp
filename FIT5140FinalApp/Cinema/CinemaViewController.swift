@@ -29,9 +29,9 @@ class CinemaViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         checkLocation()
         //sleep 2 seconds
-//    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-//        self.displayCienmaFromMapAPI()
-//      })
+        //    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+        //        self.displayCienmaFromMapAPI()
+        //      })
     }
     
     
@@ -49,18 +49,7 @@ class CinemaViewController: UIViewController {
     func validateLocationAuth(){
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
-            mapView.showsUserLocation = true
-            if let currentLocation = locationManager.location?.coordinate {
-            //print cuttentLocation lat && lng
-             userCurrentLocationLat = currentLocation.latitude
-                userCueentLocationLng = currentLocation.longitude
-                print("current location lat \(currentLocation.latitude)")
-                print("current location lng \(currentLocation.longitude)")
-                let region = MKCoordinateRegion.init(center: currentLocation, latitudinalMeters: 10000.0, longitudinalMeters: 10000.0)
-                    mapView.setRegion(region, animated: true)
-                }
-            locationManager.startUpdatingLocation()
-            self.getCinemaAccordingToUserCurrentLocation(lat: self.userCurrentLocationLat!, log: self.userCueentLocationLng!)
+            loadMap()
             break
         case .denied:
             displayMessage(title: "Reopen Authentication", message: "Settings-> Privacy->Location Services->Open")
@@ -68,12 +57,28 @@ class CinemaViewController: UIViewController {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
-         displayMessage(title: "Filed", message: "Map Service Restricted")
+            displayMessage(title: "Filed", message: "Map Service Restricted")
             break
         case .authorizedAlways:
+            loadMap()
             break
         }
     }
+    func  loadMap(){
+        mapView.showsUserLocation = true
+        if let currentLocation = locationManager.location?.coordinate {
+            //print cuttentLocation lat && lng
+            userCurrentLocationLat = currentLocation.latitude
+            userCueentLocationLng = currentLocation.longitude
+            print("current location lat \(currentLocation.latitude)")
+            print("current location lng \(currentLocation.longitude)")
+            let region = MKCoordinateRegion.init(center: currentLocation, latitudinalMeters: 10000.0, longitudinalMeters: 10000.0)
+            mapView.setRegion(region, animated: true)
+        }
+        locationManager.startUpdatingLocation()
+        self.getCinemaAccordingToUserCurrentLocation(lat: self.userCurrentLocationLat!, log: self.userCueentLocationLng!)
+    }
+    
     
     
     func getCinemaAccordingToUserCurrentLocation(lat:Double,log:Double){
@@ -110,7 +115,7 @@ class CinemaViewController: UIViewController {
                         print("##### \(self.latitudeCollection.count)")
                         
                     }
-            
+                    
                     self.displayCienmaFromMapAPI()
                     
                 }
@@ -126,11 +131,11 @@ class CinemaViewController: UIViewController {
     }
     
     func displayCienmaFromMapAPI(){
-       let number = self.longitudeCollection.count
-       print("number couunt \(number)")
+        let number = self.longitudeCollection.count
+        print("number couunt \(number)")
         for i in 0..<number{
             let _annotation = locationAnnotation(title: self.locationName[i], subtitle: self.subtitle, lat: self.latitudeCollection[i], lng: self.longitudeCollection[i])
-           mapView.addAnnotation(_annotation)
+            mapView.addAnnotation(_annotation)
         }
         
     }
@@ -156,8 +161,8 @@ extension CinemaViewController: MKMapViewDelegate{
 
 extension CinemaViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-           validateLocationAuth()
-       }
+        validateLocationAuth()
+    }
     
     
     
