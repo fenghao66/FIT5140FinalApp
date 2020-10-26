@@ -40,6 +40,8 @@ class CinemaViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         tableView.delegate = self
         tableView.dataSource = self
+        // costom the tabBar item
+        navigationController?.tabBarItem.selectedImage = UIImage(named: "location_click")
     }
     
     override func viewWillAppear(_ animated: Bool) {

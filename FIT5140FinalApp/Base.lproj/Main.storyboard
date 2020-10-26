@@ -1286,7 +1286,7 @@
         <scene sceneID="4lf-7W-ig8">
             <objects>
                 <navigationController id="NPV-Tz-nTM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="home" id="GPn-Yx-Yww"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home" id="GPn-Yx-Yww"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UoW-df-d0z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1701,9 +1701,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Home" width="32" height="32"/>
         <image name="checked" width="24" height="24"/>
         <image name="heart" width="24" height="24"/>
-        <image name="home" width="32" height="32"/>
         <image name="location" width="32" height="32"/>
         <image name="playButton" width="32" height="32"/>
         <image name="ratingStar" width="16" height="16"/>
