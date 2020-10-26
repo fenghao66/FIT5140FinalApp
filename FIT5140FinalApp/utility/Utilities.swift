@@ -76,5 +76,6 @@ class Utilities {
         txtField.leftView = leftImageView
         txtField.leftViewMode = .always
     }
-
+    
+   
 }

@@ -193,6 +193,10 @@ class CinemaViewController: UIViewController {
         let uid = Auth.auth().currentUser?.uid
         //get data
         //refer https://firebase.google.com/docs/firestore/quickstart
+       userAddressCollection = [String]()
+       userLatiitudeCollection = [Double]()
+       userLongitudeCollection = [Double]()
+       userCategoryCollectinon = [String]()
         let db = Firestore.firestore()
         db.collection("users").document(uid!).getDocument { (query, error) in
             if error == nil{
@@ -214,7 +218,7 @@ class CinemaViewController: UIViewController {
                         print("xx@@@@@@@@@@@@@@@@@@@@@@@@@xx")
                     }else{
                                         
-                        print("#################\(self.userAddressCollection[0])")
+                        print("#################\(self.userAddressCollection.count)")
                     }
                     
                 }else{
