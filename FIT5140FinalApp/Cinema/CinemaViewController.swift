@@ -7,9 +7,13 @@
 
 import UIKit
 import MapKit
+import Firebase
+import FirebaseAuth
 
 class CinemaViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var listButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
     var latitudeCollection:[Double] = [Double]()
     var longitudeCollection:[Double] = [Double]()
@@ -22,12 +26,20 @@ class CinemaViewController: UIViewController {
     var selectedLat: Double?
     var selectedLng: Double?
     var selectedName: String?
+    var showTableViewBool: Bool = true
+    var switchTableViewAndMap:Bool = true
+    var userAddressCollection:[String] = [String]()
+    var userLatiitudeCollection:[Double] = [Double]()
+    var userLongitudeCollection:[Double] = [Double]()
+    var userCategoryCollectinon:[String] = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         // locationManager delegate
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +48,27 @@ class CinemaViewController: UIViewController {
         //    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
         //        self.displayCienmaFromMapAPI()
         //      })
+        if showTableViewBool{
+            tableView.isHidden = true
+        }
+    getUserData()
+        
+    }
+    
+    
+    @IBAction func listAction(_ sender: Any) {
+        if switchTableViewAndMap{
+            mapView.isHidden = true
+            tableView.isHidden = false
+            switchTableViewAndMap = false
+            listButton.title = "Back Map"
+        }else{
+            mapView.isHidden = false
+            tableView.isHidden = true
+            switchTableViewAndMap = true
+            listButton.title = "List"
+        }
+        
     }
     
     
@@ -153,25 +186,61 @@ class CinemaViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    func getUserData(){
+        let uid = Auth.auth().currentUser?.uid
+        //get data
+        //refer https://firebase.google.com/docs/firestore/quickstart
+        let db = Firestore.firestore()
+        db.collection("users").document(uid!).getDocument { (query, error) in
+            if error == nil{
+                if query != nil && query!.exists{
+                    let documentData = query?.data()
+                    let userAddress:[String] = documentData!["address"] as! [String]
+                    let userCategoory:[String] = documentData!["Category"] as! [String]
+                    let userLat:[Double] = documentData!["lat"] as! [Double]
+                    let userLng:[Double] = documentData!["lng"] as! [Double]
+                    self.userAddressCollection = userAddress
+                    self.userCategoryCollectinon = userCategoory
+                    self.userLatiitudeCollection = userLat
+                    self.userLongitudeCollection = userLng
+                 DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                    if self.userAddressCollection.count  == 0{
+                        
+                        print("xx@@@@@@@@@@@@@@@@@@@@@@@@@xx")
+                    }else{
+                                        
+                        print("#################\(self.userAddressCollection[0])")
+                    }
+                    
+                }else{
+                    
+                    print("get data error: \(String(describing: error))")
+                }
+            }
+        }
+    }
+    
+    
     
 }
 
 extension CinemaViewController: MKMapViewDelegate{
     
     func focusOn(annotation: MKAnnotation){
-           mapView.selectAnnotation(annotation, animated: true)
-           
-           let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 3000, longitudinalMeters: 3000)
-           mapView.setRegion(mapView.regionThatFits(region), animated: true)
-           
-       }
+        mapView.selectAnnotation(annotation, animated: true)
+        
+        let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 3000, longitudinalMeters: 3000)
+        mapView.setRegion(mapView.regionThatFits(region), animated: true)
+        
+    }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         self.selectedLat = view.annotation?.coordinate.latitude
         self.selectedLng = view.annotation?.coordinate.longitude
         self.selectedName = view.annotation?.title as! String
-        focusOn(annotation: view.annotation!)
-        
+        focusOn(annotation: view.annotation!)        
     }
     
     // This refer to Youtube:https://youtu.be/w_aw72i8P_U
@@ -205,14 +274,14 @@ extension CinemaViewController: MKMapViewDelegate{
     
     
     func jumpToAppleMapNavigation(lat:Double,lng:Double){
-       //refer to https://youtu.be/INfCmCxLC0o
-       let coordinates = CLLocationCoordinate2DMake(lat,lng)
-       let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        //refer to https://youtu.be/INfCmCxLC0o
+        let coordinates = CLLocationCoordinate2DMake(lat,lng)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: 1000, longitudinalMeters: 1000)
         let options = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)]
         let placemark = MKPlacemark(coordinate: coordinates)
-                      let mapItem = MKMapItem(placemark: placemark)
+        let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = self.selectedName
-                      mapItem.openInMaps(launchOptions: options)
+        mapItem.openInMaps(launchOptions: options)
         
     }
     
@@ -238,4 +307,25 @@ extension CinemaViewController: CLLocationManagerDelegate{
     }
     
     
+}
+
+extension CinemaViewController: UITableViewDelegate{
+    
+}
+extension CinemaViewController: UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //
+        return self.userLatiitudeCollection.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
+        cell.textLabel?.text = self.userAddressCollection[indexPath.row]
+    cell.detailTextLabel?.text = "Category: " + self.userCategoryCollectinon[indexPath.row]
+        
+        return cell
+    }
 }

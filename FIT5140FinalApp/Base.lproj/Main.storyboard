@@ -916,19 +916,62 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MY6-HT-sd9">
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                             </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ixu-r2-Mqp">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" textLabel="GfQ-Ig-RqL" detailTextLabel="WZd-N1-iDX" style="IBUITableViewCellStyleSubtitle" id="7QZ-vy-vW0">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="55.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7QZ-vy-vW0" id="pDd-Mp-dVD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GfQ-Ig-RqL">
+                                                    <rect key="frame" x="15" y="10" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WZd-N1-iDX">
+                                                    <rect key="frame" x="15" y="31.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="MY6-HT-sd9" firstAttribute="top" secondItem="wzq-Mc-H9D" secondAttribute="top" id="1B6-Wp-2fQ"/>
+                            <constraint firstItem="ixu-r2-Mqp" firstAttribute="leading" secondItem="wzq-Mc-H9D" secondAttribute="leading" id="Cto-el-Dfs"/>
                             <constraint firstItem="MY6-HT-sd9" firstAttribute="bottom" secondItem="wzq-Mc-H9D" secondAttribute="bottom" id="Emv-EM-bkF"/>
                             <constraint firstItem="MY6-HT-sd9" firstAttribute="leading" secondItem="wzq-Mc-H9D" secondAttribute="leading" id="KKU-Js-bd7"/>
+                            <constraint firstItem="ixu-r2-Mqp" firstAttribute="top" secondItem="wzq-Mc-H9D" secondAttribute="top" id="LdA-P0-pYh"/>
+                            <constraint firstItem="ixu-r2-Mqp" firstAttribute="trailing" secondItem="wzq-Mc-H9D" secondAttribute="trailing" id="hgh-i1-ic7"/>
+                            <constraint firstItem="ixu-r2-Mqp" firstAttribute="bottom" secondItem="wzq-Mc-H9D" secondAttribute="bottom" id="r1z-v4-lDj"/>
                             <constraint firstItem="MY6-HT-sd9" firstAttribute="trailing" secondItem="wzq-Mc-H9D" secondAttribute="trailing" id="xpV-Nl-5ze"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wzq-Mc-H9D"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Cinemas" id="82a-zQ-PS4"/>
+                    <navigationItem key="navigationItem" title="Cinemas" id="82a-zQ-PS4">
+                        <barButtonItem key="leftBarButtonItem" title="List" id="pWl-kg-6zS">
+                            <connections>
+                                <action selector="listAction:" destination="fCw-UB-orB" id="7o3-7c-fzB"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="ba2-QZ-EA6"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="listButton" destination="pWl-kg-6zS" id="YNu-1H-7OU"/>
                         <outlet property="mapView" destination="MY6-HT-sd9" id="OSL-Gy-gyE"/>
+                        <outlet property="tableView" destination="ixu-r2-Mqp" id="vgX-2B-pdJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Wy-Qm-MUo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
