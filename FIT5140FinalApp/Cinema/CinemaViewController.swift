@@ -77,8 +77,9 @@ class CinemaViewController: UIViewController {
     
     
     func getCinemaAccordingToUserCurrentLocation(lat:Double,log:Double){
-        //self.latitudeCollection = []
-        
+        self.latitudeCollection = [Double]()
+        self.longitudeCollection = [Double]()
+        self.locationName = [String]()
         let searchString = Constants.MAP_REQUEST + "\(lat),\(log)&radius=8000&type=movie_theater&key="+Constants.MAP_KEY
         
         let jsonURL = URL(string: searchString.addingPercentEncoding(withAllowedCharacters:
@@ -126,7 +127,7 @@ class CinemaViewController: UIViewController {
     
     func displayCienmaFromMapAPI(){
        let number = self.longitudeCollection.count
-        
+       print("number couunt \(number)")
         for i in 0..<number{
             let _annotation = locationAnnotation(title: self.locationName[i], subtitle: self.subtitle, lat: self.latitudeCollection[i], lng: self.longitudeCollection[i])
            mapView.addAnnotation(_annotation)
