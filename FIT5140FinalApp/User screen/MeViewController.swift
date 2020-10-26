@@ -51,10 +51,21 @@ class MeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         getUserData()
         print("!!!!!! movie Collection \(self.movieCollection.count)")
+        seeMoreBoolean = true
+        seeMoreButton.title = "See More"
+        showSeeMoreCollectionView = true
         if showSeeMoreCollectionView{
             
             seeMoreCollectionView.isHidden = true
         }
+        favoriteView.isHidden = false
+        logOutButton.isHidden = false
+        userImage.isHidden = false
+        firstNameLabel.isHidden = false
+        favoriteButton.isHidden = false
+        watchedButton.isHidden = false
+        view1.isHidden = false
+        view2.isHidden = false
         
     }
     @IBAction func seeMoreAction(_ sender: Any) {
