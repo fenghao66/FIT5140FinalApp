@@ -18,6 +18,10 @@ class CinemaViewController: UIViewController {
     var userCueentLocationLng:Double?
     var locationManager: CLLocationManager = CLLocationManager()
     let subtitle:String = "Cinema"
+    var button: UIButton?
+    var selectedLat: Double?
+    var selectedLng: Double?
+    var selectedName: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -135,7 +139,9 @@ class CinemaViewController: UIViewController {
         print("number couunt \(number)")
         for i in 0..<number{
             let _annotation = locationAnnotation(title: self.locationName[i], subtitle: self.subtitle, lat: self.latitudeCollection[i], lng: self.longitudeCollection[i])
-            mapView.addAnnotation(_annotation)
+            DispatchQueue.main.async {
+                self.mapView.addAnnotation(_annotation)
+            }
         }
         
     }
@@ -152,8 +158,63 @@ class CinemaViewController: UIViewController {
 
 extension CinemaViewController: MKMapViewDelegate{
     
+    func focusOn(annotation: MKAnnotation){
+           mapView.selectAnnotation(annotation, animated: true)
+           
+           let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 3000, longitudinalMeters: 3000)
+           mapView.setRegion(mapView.regionThatFits(region), animated: true)
+           
+       }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        self.selectedLat = view.annotation?.coordinate.latitude
+        self.selectedLng = view.annotation?.coordinate.longitude
+        self.selectedName = view.annotation?.title as! String
+        focusOn(annotation: view.annotation!)
+        
+    }
+    
+    // This refer to Youtube:https://youtu.be/w_aw72i8P_U
+    //https://www.raywenderlich.com/7738344-mapkit-tutorial-getting-started#toc-anchor-012
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is locationAnnotation else { return nil}
+        
+        let _identifier = "annotation"
+        var view: MKMarkerAnnotationView
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: _identifier) as? MKMarkerAnnotationView{
+            
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+            
+        }else{
+            
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: _identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            view.rightCalloutAccessoryView = UIButton(type: .infoDark)
+            button = view.rightCalloutAccessoryView as? UIButton
+            button?.addTarget(self, action: #selector(jumpToAnotherScreen), for: .touchUpInside)
+        }
+        return view
+    }
+    
+    @objc func jumpToAnotherScreen(sender: UIButton){
+        print("success")
+        jumpToAppleMapNavigation(lat: self.selectedLat!, lng: self.selectedLng!)
+    }
     
     
+    func jumpToAppleMapNavigation(lat:Double,lng:Double){
+       //refer to https://youtu.be/INfCmCxLC0o
+       let coordinates = CLLocationCoordinate2DMake(lat,lng)
+       let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        let options = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)]
+        let placemark = MKPlacemark(coordinate: coordinates)
+                      let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = self.selectedName
+                      mapItem.openInMaps(launchOptions: options)
+        
+    }
     
     
 }
