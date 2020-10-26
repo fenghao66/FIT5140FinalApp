@@ -23,11 +23,13 @@ class CinemaViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         getCinemaAccordingToUserCurrentLocation(lat: -37.8828617, log:145.0913041)
-    self.perform(#selector(latitudeCollectionCount), with: nil, afterDelay: 3.0)
-        
+//    self.perform(#selector(latitudeCollectionCount), with: nil, afterDelay: 3.0)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.latitudeCollectionCount()
+        })
     }
-    
-   @objc func  latitudeCollectionCount(){
+   // @objc
+    func  latitudeCollectionCount(){
         var id:Int = 1
         
         if self.latitudeCollection.count > 0 {
