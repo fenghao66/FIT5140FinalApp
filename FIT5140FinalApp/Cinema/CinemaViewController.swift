@@ -48,6 +48,9 @@ class CinemaViewController: UIViewController {
         //    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
         //        self.displayCienmaFromMapAPI()
         //      })
+        mapView.isHidden = false
+        listButton.title = "List"
+        switchTableViewAndMap = true
         if showTableViewBool{
             tableView.isHidden = true
         }
@@ -328,4 +331,15 @@ extension CinemaViewController: UITableViewDataSource{
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.selectedName = self.userAddressCollection[indexPath.row]
+        let userLat:Double = userLatiitudeCollection[indexPath.row]
+        let userLng:Double = userLongitudeCollection[indexPath.row]
+        
+        jumpToAppleMapNavigation(lat: userLat, lng: userLng)
+        
+    }
+    
 }
