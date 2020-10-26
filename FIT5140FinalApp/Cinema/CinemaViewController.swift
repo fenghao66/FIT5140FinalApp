@@ -13,35 +13,65 @@ class CinemaViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     var latitudeCollection:[Double] = [Double]()
     var longitudeCollection:[Double] = [Double]()
+    var locationName:[String] = [String]()
+    var userCurrentLocationLat:Double?
+    var userCueentLocationLng:Double?
+    var locationManager: CLLocationManager = CLLocationManager()
+    let subtitle:String = "Cinema"
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-        // Do any additional setup after loading the view.
-        
-        
+        // locationManager delegate
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getCinemaAccordingToUserCurrentLocation(lat: -37.8828617, log:145.0913041)
-//    self.perform(#selector(latitudeCollectionCount), with: nil, afterDelay: 3.0)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            self.latitudeCollectionCount()
-        })
+        checkLocation()
+        //sleep 2 seconds
+//    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+//        self.displayCienmaFromMapAPI()
+//      })
     }
-   // @objc
-    func  latitudeCollectionCount(){
-        var id:Int = 1
-        
-        if self.latitudeCollection.count > 0 {
+    
+    
+    
+    func checkLocation(){
+        if CLLocationManager.locationServicesEnabled() {
+            validateLocationAuth()
             
-            print("%%%%%%%%%%\(self.latitudeCollection.count)")
+        }else {
+            print("CLLocationManager failed !!!")
         }
         
-        for test  in self.latitudeCollection{
-           print("loop: \(test)")
-           print("count!!: \(id)")
-            id = id+1
-            
+    }
+    
+    func validateLocationAuth(){
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse:
+            mapView.showsUserLocation = true
+            if let currentLocation = locationManager.location?.coordinate {
+            //print cuttentLocation lat && lng
+             userCurrentLocationLat = currentLocation.latitude
+                userCueentLocationLng = currentLocation.longitude
+                print("current location lat \(currentLocation.latitude)")
+                print("current location lng \(currentLocation.longitude)")
+                let region = MKCoordinateRegion.init(center: currentLocation, latitudinalMeters: 10000.0, longitudinalMeters: 10000.0)
+                    mapView.setRegion(region, animated: true)
+                }
+            locationManager.startUpdatingLocation()
+            self.getCinemaAccordingToUserCurrentLocation(lat: self.userCurrentLocationLat!, log: self.userCueentLocationLng!)
+            break
+        case .denied:
+            displayMessage(title: "Reopen Authentication", message: "Settings-> Privacy->Location Services->Open")
+            break
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted:
+         displayMessage(title: "Filed", message: "Map Service Restricted")
+            break
+        case .authorizedAlways:
+            break
         }
     }
     
@@ -49,7 +79,7 @@ class CinemaViewController: UIViewController {
     func getCinemaAccordingToUserCurrentLocation(lat:Double,log:Double){
         //self.latitudeCollection = []
         
-        let searchString = Constants.MAP_REQUEST + "\(lat),\(log)&radius=15000&type=movie_theater&key="+Constants.MAP_KEY
+        let searchString = Constants.MAP_REQUEST + "\(lat),\(log)&radius=8000&type=movie_theater&key="+Constants.MAP_KEY
         
         let jsonURL = URL(string: searchString.addingPercentEncoding(withAllowedCharacters:
             .urlQueryAllowed)!)
@@ -75,9 +105,13 @@ class CinemaViewController: UIViewController {
                         
                         self.latitudeCollection.append(latResult)
                         self.longitudeCollection.append(value.geometry!.location!.lng!)
+                        self.locationName.append(value.name!)
                         print("##### \(self.latitudeCollection.count)")
                         
                     }
+            
+                    self.displayCienmaFromMapAPI()
+                    
                 }
                 
             }catch let error{
@@ -90,7 +124,22 @@ class CinemaViewController: UIViewController {
         
     }
     
+    func displayCienmaFromMapAPI(){
+       let number = self.longitudeCollection.count
+        
+        for i in 0..<number{
+            let _annotation = locationAnnotation(title: self.locationName[i], subtitle: self.subtitle, lat: self.latitudeCollection[i], lng: self.longitudeCollection[i])
+           mapView.addAnnotation(_annotation)
+        }
+        
+    }
     
+    func displayMessage(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message,preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss",style: UIAlertAction.Style.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
     
     
 }
@@ -99,6 +148,27 @@ extension CinemaViewController: MKMapViewDelegate{
     
     
     
+    
+    
+}
+
+
+extension CinemaViewController: CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+           validateLocationAuth()
+       }
+    
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else {
+            
+            print("failed")
+            return
+        }
+        let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: 10000.0, longitudinalMeters: 10000.0)
+        mapView.setRegion(region, animated: true)
+    }
     
     
 }
