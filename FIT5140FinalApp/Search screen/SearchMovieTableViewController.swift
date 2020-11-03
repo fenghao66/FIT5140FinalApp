@@ -136,8 +136,13 @@ class SearchMovieTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchMovieCell", for: indexPath) as! SearchMovieCell
         let movie = newMovies[indexPath.row]
         
+        cell.layer.cornerRadius = 10.0
+        cell.layer.shadowOpacity = 0.5
+        cell.layer.shadowRadius = 10
+        cell.layer.masksToBounds = false
+        
         cell.movieName.text = movie.title
-        //cell.releaseYear.text = dateFormatter.string(from: movie.releaseDate)
+        cell.releaseYear.text = movie.releaseDate
         cell.movieOverview.text = movie.overview
         if movie.posterPath == nil {
             cell.posterImage.image = nil

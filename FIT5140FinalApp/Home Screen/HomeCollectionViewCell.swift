@@ -20,16 +20,4 @@ class HomeCollectionViewCell: UICollectionViewCell {
         posterImage.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
         posterImage.layer.masksToBounds = true
     }
-    
-//    var movie: MovieData! {
-//        didSet {
-//            self.updateUI()
-//        }
-//    }
-//
-//    func updateUI() {
-//        if let movie = movie {
-//
-//        }
-//    }
 }

@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import SafariServices
 
 class MovieDetailViewController: UIViewController {
     
@@ -261,7 +262,9 @@ class MovieDetailViewController: UIViewController {
     @IBAction func viewTrailor(_ sender: Any) {
         if let trailerKey = self.movieTrailor.first?.trailorPath {
             let url = URL(string:"http://www.youtube.com/watch?v=\(trailerKey)")!
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            //UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            let safariViewController = SFSafariViewController(url: url)
+            present(safariViewController, animated: true)
         }
     }
 }

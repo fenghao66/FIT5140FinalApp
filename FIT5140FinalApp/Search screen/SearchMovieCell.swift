@@ -16,6 +16,8 @@ class SearchMovieCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        posterImage.layer.cornerRadius = 8.0
+        posterImage.layer.masksToBounds = true
         // Initialization code
     }
 

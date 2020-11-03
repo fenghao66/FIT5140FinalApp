@@ -36,9 +36,9 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.tabBarItem.selectedImage = UIImage(named: "home_click")
         
-        
-        
         popularButton.setTitleColor(UIColor.black, for: .normal)
+        homeCollectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        
     }
     
     @IBAction func showPopularMovies(_ sender: Any) {
