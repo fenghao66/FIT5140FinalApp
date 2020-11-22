@@ -1299,8 +1299,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyy-Cm-Kbl">
-                                <rect key="frame" x="5" y="2" width="34" height="30"/>
-                                <state key="normal" title="Back"/>
+                                <rect key="frame" x="5" y="2" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="backAction:" destination="5rB-AR-X7r" eventType="touchUpInside" id="nZh-xf-2eb"/>
                                 </connections>
@@ -1415,8 +1415,8 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyo-jh-btq">
-                                <rect key="frame" x="5" y="2" width="34" height="30"/>
-                                <state key="normal" title="Back"/>
+                                <rect key="frame" x="5" y="2" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="backAction:" destination="Vag-nX-KEd" eventType="touchUpInside" id="KWZ-hd-YpX"/>
                                 </connections>
@@ -1514,8 +1514,8 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nO-iC-jRI">
-                                <rect key="frame" x="5" y="2" width="34" height="30"/>
-                                <state key="normal" title="Back"/>
+                                <rect key="frame" x="5" y="2" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="backAction:" destination="wBW-9U-Ezu" eventType="touchUpInside" id="hWL-nx-3rm"/>
                                 </connections>

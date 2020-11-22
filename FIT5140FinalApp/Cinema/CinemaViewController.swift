@@ -56,7 +56,7 @@ class CinemaViewController: UIViewController {
         if showTableViewBool{
             tableView.isHidden = true
         }
-    getUserData()
+        getUserData()
         
     }
     
@@ -195,10 +195,10 @@ class CinemaViewController: UIViewController {
         let uid = Auth.auth().currentUser?.uid
         //get data
         //refer https://firebase.google.com/docs/firestore/quickstart
-       userAddressCollection = [String]()
-       userLatiitudeCollection = [Double]()
-       userLongitudeCollection = [Double]()
-       userCategoryCollectinon = [String]()
+        userAddressCollection = [String]()
+        userLatiitudeCollection = [Double]()
+        userLongitudeCollection = [Double]()
+        userCategoryCollectinon = [String]()
         let db = Firestore.firestore()
         db.collection("users").document(uid!).getDocument { (query, error) in
             if error == nil{
@@ -212,14 +212,14 @@ class CinemaViewController: UIViewController {
                     self.userCategoryCollectinon = userCategoory
                     self.userLatiitudeCollection = userLat
                     self.userLongitudeCollection = userLng
-                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                     if self.userAddressCollection.count  == 0{
                         
                         print("xx@@@@@@@@@@@@@@@@@@@@@@@@@xx")
                     }else{
-                                        
+                        
                         print("#################\(self.userAddressCollection.count)")
                     }
                     
@@ -278,7 +278,19 @@ extension CinemaViewController: MKMapViewDelegate{
     
     @objc func jumpToAnotherScreen(sender: UIButton){
         print("success")
-        jumpToAppleMapNavigation(lat: self.selectedLat!, lng: self.selectedLng!)
+        let alert = UIAlertController(title: "Menu", message: "Store This Address OR Go to this address", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Store This Address ", style: .default, handler: { (action) in
+            //store this address
+            self.storeNewAddress(lat: self.selectedLat!, lng: self.selectedLng!)
+        }))
+        alert.addAction(UIAlertAction(title: "Direction", style: .default, handler: { (action) in
+            //direction
+            self.jumpToAppleMapNavigation(lat: self.selectedLat!, lng: self.selectedLng!)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert,animated: true)
     }
     
     
@@ -294,7 +306,56 @@ extension CinemaViewController: MKMapViewDelegate{
         
     }
     
+    func storeNewAddress(lat:Double,lng:Double){
+        do{
+            self.userAddressCollection.append(self.selectedName!);
+            try updateDataString(name: "address", value: userAddressCollection)
+            
+            self.userLatiitudeCollection.append(lat);
+            try  updateDataDouble(name: "lat", value: userLatiitudeCollection)
+            
+            self.userLongitudeCollection.append(lng);
+            try  updateDataDouble(name: "lng", value: userLongitudeCollection)
+            
+            self.userCategoryCollectinon.append("Movie Theater")
+            try  updateDataString(name: "Category", value: userCategoryCollectinon)
+            try self.tableView.reloadData()
+            
+        } catch is Error{
+            
+            print("Save failed \(Error.self)")
+            
+        }
+        displayMessage(title: "Success", message: "Save New Address Successfully")
+        
+    }
+    func updateDataString(name: String,value: [String]){
+        let db = Firestore.firestore()
+        let uid = Auth.auth().currentUser?.uid
+        db.collection("users").document(uid!).updateData(["\(name)": value]) { (error) in
+            if let error = error{
+                self.displayMessage(title: "Failed", message: error.localizedDescription)
+            }else {
+                
+                
+            }
+        }
+        
+    }
     
+    func updateDataDouble(name: String,value: [Double]){
+        let db = Firestore.firestore()
+        let uid = Auth.auth().currentUser?.uid
+        db.collection("users").document(uid!).updateData(["\(name)": value]) { (error) in
+            if let error = error{
+                self.displayMessage(title: "Failed", message: error.localizedDescription)
+            }else {
+                
+                
+            }
+        }
+        
+    }
 }
 
 
@@ -333,7 +394,7 @@ extension CinemaViewController: UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
         cell.textLabel?.text = self.userAddressCollection[indexPath.row]
-    cell.detailTextLabel?.text = "Category: " + self.userCategoryCollectinon[indexPath.row]
+        cell.detailTextLabel?.text = "Category: " + self.userCategoryCollectinon[indexPath.row]
         
         return cell
     }
@@ -347,5 +408,32 @@ extension CinemaViewController: UITableViewDataSource{
         jumpToAppleMapNavigation(lat: userLat, lng: userLng)
         
     }
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            
+            do{
+                self.userAddressCollection.remove(at: indexPath.row);
+                try updateDataString(name: "address", value: userAddressCollection)
+                
+                self.userLatiitudeCollection.remove(at: indexPath.row);
+                try  updateDataDouble(name: "lat", value: userLatiitudeCollection)
+                
+                self.userLongitudeCollection.remove(at: indexPath.row);
+                try  updateDataDouble(name: "lng", value: userLongitudeCollection)
+                
+                self.userCategoryCollectinon.remove(at: indexPath.row)
+                try  updateDataString(name: "Category", value: userCategoryCollectinon)
+             try self.tableView.reloadData()
+                
+            } catch is Error{
+                
+                print("Save failed \(Error.self)")
+                
+            }
+            displayMessage(title: "Success", message: "Delete Selected Address Successfully")
+            
+            
+        }
+        
+    }
 }
