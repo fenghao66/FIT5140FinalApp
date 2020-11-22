@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import NVActivityIndicatorView
 
 class MeViewController: UIViewController {
     
@@ -32,6 +33,7 @@ class MeViewController: UIViewController {
     var uId:String?
     var filterId:[Int]?
     var watchedButtonClicked:Bool = false
+    let loading = NVActivityIndicatorView(frame: .zero, type: .pacman, color: .red, padding: 0)
     override func viewDidLoad() {
         super.viewDidLoad()
         //        let layout = UICollectionViewFlowLayout()
@@ -49,6 +51,7 @@ class MeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        startAnimation()
         getUserData()
         print("!!!!!! movie Collection \(self.movieCollection.count)")
         seeMoreBoolean = true
@@ -132,6 +135,7 @@ class MeViewController: UIViewController {
                         
                         print("@@@@@@@@@@@@@@@@@@@@@@@@@")
                     }else{
+                        self.loading.stopAnimating()
                         self.refreshMovieDetailCollection(idCollection: self.favoriet)
                         
                         print("#################\(self.favoriet[0])")
@@ -364,5 +368,21 @@ extension UIImageView{
             }
         }
         task.resume()
+    }
+}
+extension MeViewController{
+    func startAnimation(){
+//        let loading = NVActivityIndicatorView(frame: .zero, type: .ballTrianglePath, color: .red, padding: 0)
+        loading.translatesAutoresizingMaskIntoConstraints = false
+        favoriteView.addSubview(loading)
+        NSLayoutConstraint.activate([
+            loading.widthAnchor.constraint(equalToConstant: 40),
+            loading.heightAnchor.constraint(equalToConstant: 50),
+            loading.centerYAnchor.constraint(equalTo: favoriteView.centerYAnchor),
+            loading.centerXAnchor.constraint(equalTo: favoriteView.centerXAnchor)
+        
+        ])
+        
+        loading.startAnimating()
     }
 }

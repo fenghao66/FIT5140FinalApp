@@ -10,4 +10,5 @@ target 'FIT5140FinalApp' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
+  pod 'NVActivityIndicatorView'
 end

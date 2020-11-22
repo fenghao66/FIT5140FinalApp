@@ -75,8 +75,16 @@ class SignUpViewController: UIViewController {
                 }else{
                     //create user success
                     //refer: https://firebase.google.com/docs/firestore/quickstart
+                    let favoriets:[Int] = [Int]()
+                    let watched:[Int] = [Int]()
+                    let userAddressCollection:[String] = [String]()
+                    let userLatiitudeCollection:[Double] = [Double]()
+                    let userLongitudeCollection:[Double] = [Double]()
+                    let userCategoryCollectinon:[String] = [String]()
+                            
                     let db = Firestore.firestore()
-                    db.collection("users").document(success!.user.uid).setData(["firstName":self.firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),"lastName":self.lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines), "uid":success!.user.uid]) { (error) in
+                    db.collection("users").document(success!.user.uid).setData(["firstName":self.firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines),"lastName":self.lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines), "uid":success!.user.uid,"favorites":favoriets,"watched":watched,"address":userAddressCollection,"Category":userCategoryCollectinon,"lat":userLatiitudeCollection,"lng":userLongitudeCollection
+                    ]) { (error) in
                         if error == nil {
                             self.errorLabel.alpha = 1
                             self.errorLabel.text = "Add New User to Firebase Failed"
