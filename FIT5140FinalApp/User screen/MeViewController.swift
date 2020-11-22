@@ -12,6 +12,7 @@ import NVActivityIndicatorView
 
 class MeViewController: UIViewController {
     
+    @IBOutlet weak var aboutButton: UIButton!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var logOutButton: UIButton!
@@ -47,6 +48,7 @@ class MeViewController: UIViewController {
         Utilities.styleFilledButton(logOutButton)
         favoriteButton.setTitleColor(UIColor.systemOrange, for: .normal)
         watchedButton.setTitleColor(UIColor.gray, for: .normal)
+        Utilities.styleFilledButton(aboutButton)
         
     }
     
