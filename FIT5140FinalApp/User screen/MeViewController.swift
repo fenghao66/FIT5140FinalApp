@@ -44,7 +44,7 @@ class MeViewController: UIViewController {
         // costom the tabBar item
         navigationController?.tabBarItem.selectedImage = UIImage(named: "user_click")
         
-        Utilities.signOutButton(logOutButton)
+        Utilities.styleFilledButton(logOutButton)
         favoriteButton.setTitleColor(UIColor.systemOrange, for: .normal)
         watchedButton.setTitleColor(UIColor.gray, for: .normal)
         

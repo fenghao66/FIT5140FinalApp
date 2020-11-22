@@ -447,16 +447,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AMZ-xW-nhw">
-                                <rect key="frame" x="108" y="59" width="160" height="110"/>
+                                <rect key="frame" x="108" y="59" width="160" height="80"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_click" translatesAutoresizingMaskIntoConstraints="NO" id="eVj-mW-IrP">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="CxT-9N-t5m"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6c-eJ-rcu">
-                                        <rect key="frame" x="0.0" y="50" width="160" height="25"/>
+                                        <rect key="frame" x="0.0" y="55" width="160" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="160" id="4re-aJ-3UT"/>
                                             <constraint firstAttribute="height" constant="25" id="u4D-6f-eG6"/>
@@ -465,30 +465,19 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG3-Pm-oaa">
-                                        <rect key="frame" x="0.0" y="85" width="160" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="CG3-cB-ix2"/>
-                                            <constraint firstAttribute="width" constant="160" id="ZMa-ZB-W2v"/>
-                                        </constraints>
-                                        <state key="normal" title="Log out  "/>
-                                        <connections>
-                                            <action selector="logOutButton:" destination="lef-8a-4J3" eventType="touchUpInside" id="bCc-NK-WLT"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="C3y-sH-Bwy"/>
+                                    <constraint firstAttribute="height" constant="80" id="C3y-sH-Bwy"/>
                                     <constraint firstAttribute="width" constant="160" id="qeP-0L-B7w"/>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F73-Zt-GWa">
-                                <rect key="frame" x="16" y="191" width="350" height="1"/>
+                                <rect key="frame" x="16" y="162" width="350" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BA4-dQ-XHP">
-                                <rect key="frame" x="16" y="200" width="111" height="30"/>
+                                <rect key="frame" x="16" y="166" width="111" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Favorite Movies ">
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -498,7 +487,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6H-R0-6md">
-                                <rect key="frame" x="253" y="200" width="114" height="30"/>
+                                <rect key="frame" x="253" y="166" width="114" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Watched Movies"/>
                                 <connections>
@@ -506,7 +495,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vp0-6u-LcA">
-                                <rect key="frame" x="186" y="200" width="3" height="30"/>
+                                <rect key="frame" x="186" y="166" width="3" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -570,7 +559,7 @@
                                 </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Abm-Yr-XW0">
-                                <rect key="frame" x="16" y="232" width="350" height="386"/>
+                                <rect key="frame" x="16" y="191" width="350" height="386"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QdS-pb-bFb">
@@ -630,14 +619,28 @@
                                     <outlet property="delegate" destination="lef-8a-4J3" id="vxw-sc-Jwq"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG3-Pm-oaa">
+                                <rect key="frame" x="107" y="581" width="160" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CG3-cB-ix2"/>
+                                    <constraint firstAttribute="width" constant="160" id="ZMa-ZB-W2v"/>
+                                </constraints>
+                                <state key="normal" title="Log out  "/>
+                                <connections>
+                                    <action selector="logOutButton:" destination="lef-8a-4J3" eventType="touchUpInside" id="bCc-NK-WLT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="kP1-Wh-K4D" firstAttribute="top" secondItem="99U-6n-Xrk" secondAttribute="top" id="Aj5-E6-Hu3"/>
+                            <constraint firstItem="uG3-Pm-oaa" firstAttribute="leading" secondItem="99U-6n-Xrk" secondAttribute="leading" constant="107" id="Kuh-rU-CKQ"/>
                             <constraint firstItem="99U-6n-Xrk" firstAttribute="trailing" secondItem="AMZ-xW-nhw" secondAttribute="trailing" constant="107" id="Kyg-Fp-Jfz"/>
+                            <constraint firstItem="99U-6n-Xrk" firstAttribute="bottom" secondItem="uG3-Pm-oaa" secondAttribute="bottom" constant="7" id="RUf-dJ-n51"/>
                             <constraint firstItem="kP1-Wh-K4D" firstAttribute="leading" secondItem="99U-6n-Xrk" secondAttribute="leading" constant="7" id="bsI-ce-Iuk"/>
                             <constraint firstItem="kP1-Wh-K4D" firstAttribute="bottom" secondItem="99U-6n-Xrk" secondAttribute="bottom" id="d54-ps-Iep"/>
                             <constraint firstItem="AMZ-xW-nhw" firstAttribute="top" secondItem="99U-6n-Xrk" secondAttribute="top" constant="15" id="h8g-9I-Agm"/>
+                            <constraint firstItem="99U-6n-Xrk" firstAttribute="trailing" secondItem="uG3-Pm-oaa" secondAttribute="trailing" constant="108" id="mTV-Fd-gX4"/>
                             <constraint firstItem="AMZ-xW-nhw" firstAttribute="leading" secondItem="99U-6n-Xrk" secondAttribute="leading" constant="108" id="oJ7-tk-LJ0"/>
                             <constraint firstItem="99U-6n-Xrk" firstAttribute="trailing" secondItem="kP1-Wh-K4D" secondAttribute="trailing" constant="7" id="pyI-gW-H8I"/>
                         </constraints>
